@@ -1,7 +1,8 @@
  -- drop database e_com;
-CREATE DATABASE  IF NOT EXISTS  `e_com`;
-use `e_com`;
+CREATE DATABASE  IF NOT EXISTS  `u730611153_ecommerce`;
+use `u730611153_ecommerce`;
 
+-- drop table users;
 
 create table `category`(
 	`category_id` int(11) PRIMARY KEY AUTO_INCREMENT,
@@ -10,7 +11,17 @@ create table `category`(
 	`name` varchar(100) NOT NULL,
     `product_id` int DEFAULT NULL
 )ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
+ALTER TABLE category ADD UNIQUE(NAME);
+insert into category(name) values('Mobile');
+insert into category(name) values('Mobile Accessories');
+insert into category(name) values('Smart Wearable Tech');
+insert into category(name) values('Health Care Appliances');
+insert into category(name) values('Laptops');
+insert into category(name) values('Desktop PCs');
+insert into category(name) values('Speakers');
+insert into category(name) values('Camera');
+insert into category(name) values('Camera Accessories ');
+insert into category(name) values('Kitchen Appliances');
 
 create table `products`(
 	`product_id` int(11) PRIMARY KEY AUTO_INCREMENT,
@@ -36,7 +47,7 @@ create table `users`(
     `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`user_name` varchar(100) UNIQUE NOT NULL,
-    `email` varchar(100) NOT NULL,
+    `email` varchar(100) UNIQUE NOT NULL,
     `role` varchar(50) NOT NULL default 'USER',
 	`active` int NOT NULL DEFAULT 1
 )ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

@@ -51,7 +51,8 @@ public class SecurityConfig {
 						.ignoringRequestMatchers("/ecom/users/register")
 						.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
 				.addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
-				.authorizeHttpRequests((requests) -> requests.requestMatchers("/ecom/users/register").permitAll()
+				.authorizeHttpRequests((requests) -> requests
+						.requestMatchers("/ecom/users/register", "/ecom/metadata/**").permitAll()
 						.requestMatchers("/**").authenticated())
 				.formLogin(Customizer.withDefaults()).httpBasic(Customizer.withDefaults());
 		return http.build();

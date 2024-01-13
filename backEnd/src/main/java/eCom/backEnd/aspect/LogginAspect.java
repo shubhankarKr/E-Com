@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LogginAspect {
 
-	@Around("execution(* com.backEnd.*.*(..))")
+	@Around("execution(* eCom.backEnd.*.*(..))")
 	public Object aroundAdvice(ProceedingJoinPoint joinPoint) throws Throwable {
 		System.out.println("Before proceeding part of the Around advice." + joinPoint.getSignature());
 		Object cust = joinPoint.proceed();
