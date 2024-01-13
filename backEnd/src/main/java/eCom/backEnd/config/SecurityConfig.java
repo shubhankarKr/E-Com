@@ -1,5 +1,6 @@
 package eCom.backEnd.config;
 
+import java.util.Arrays;
 import java.util.Collections;
 
 import org.springframework.context.annotation.Bean;
@@ -38,7 +39,7 @@ public class SecurityConfig {
 					@Override
 					public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
 						CorsConfiguration config = new CorsConfiguration();
-						config.setAllowedOrigins(Collections.singletonList("*"));
+						config.setAllowedOrigins(Arrays.asList("http://localhost:4200", "http://localhost:5173"));
 						config.setAllowedMethods(Collections.singletonList("*"));
 						config.setAllowCredentials(true);
 						config.setAllowedHeaders(Collections.singletonList("*"));
