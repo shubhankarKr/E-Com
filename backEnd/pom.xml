@@ -11,7 +11,7 @@
 	<groupId>eCom</groupId>
 	<artifactId>backEnd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>backEnd</name>
 	<description>This is backEnd for e-com website built using Spring boot</description>
 	<properties>
