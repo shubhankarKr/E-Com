@@ -39,4 +39,8 @@ public class ProductsController {
 	public List<Products> saveProduct(@RequestBody List<Products> products) {
 		return (List<Products>) productRepository.saveAll(products);
 	}
+
+	public Products updateProduct(@RequestBody Products products) {
+		return productRepository.save(products);
+	}
 }
