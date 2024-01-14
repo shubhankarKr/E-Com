@@ -11,7 +11,7 @@ eCom\backEnd\entity\Cart.class
 eCom\backEnd\controller\ProductsController.class
 eCom\backEnd\dao\repository\ProductRepository.class
 eCom\backEnd\BackEndApplication.class
-eCom\backEnd\aspect\LogginAspect.class
 eCom\backEnd\dao\repository\UserRepository.class
 eCom\backEnd\service\user\UserService.class
 eCom\backEnd\entity\Products.class
+eCom\backEnd\aspect\LoggingAspect.class
