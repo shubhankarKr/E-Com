@@ -4,6 +4,7 @@ eCom\backEnd\config\SecurityConfig.class
 eCom\backEnd\controller\MetadataController.class
 eCom\backEnd\dao\repository\CategoryRepository.class
 eCom\backEnd\entity\Users.class
+eCom\backEnd\filter\interceptor\LogInterceptor.class
 eCom\backEnd\entity\Category.class
 eCom\backEnd\controller\UserController.class
 eCom\backEnd\config\SecurityConfig$1.class

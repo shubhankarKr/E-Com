@@ -1,6 +1,7 @@
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\config\SecurityConfig.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\controller\ProductsController.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\entity\Products.java
+D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\filter\interceptor\LogInterceptor.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\aspect\LoggingAspect.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\dao\repository\UserRepository.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\entity\Category.java
