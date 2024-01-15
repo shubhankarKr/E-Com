@@ -1,5 +1,5 @@
 package eCom.backEnd.dao;
 
 public interface UserDao {
-	String deleteUserByUserName(String userName) throws Exception;
+	String deleteGivenUserByUserName(String userName) throws Exception;
 }

@@ -36,47 +36,45 @@ public class UserController {
 	UserService userService;
 
 	@PostMapping("/register")
-	public ResponseEntity<Users> registerUser(@RequestBody Users user) throws Exception {
+	public ResponseEntity<SuccessResponse> registerUser(@RequestBody Users user) throws Exception {
 		HashMap<String, String> output = new HashMap<>();
 
-		List<Users> userFromDB = userRepository.findUsersByUserName(user.getUserName());
-		if (userFromDB.size() > 0) {
-			return new ResponseEntity<Users>(user, HttpStatus.INTERNAL_SERVER_ERROR);
+		List<Users> usersLists = userRepository.findUsersByUserName(user.getUserName());
+		if (usersLists.size() > 0) {
+			throw new Exception(user.getUserName() + "is already registered");
 		}
 		user.setPassword(encoder.encode(user.getPassword()));
 		user.setRole("USER");
 		user.setActive(1);
 		userRepository.save(user);
-		return new ResponseEntity<Users>(user,
+		return new ResponseEntity<>(new SuccessResponse(user.getUserName() + " created successfully"),
 				HttpStatus.CREATED);
 	}
 
 	@GetMapping("/authenticate")
-	public Users authenticateUser(Authentication authentication) {
+	public Users authenticateUser(Authentication authentication) throws Exception {
 		List<Users> userFromDB = userRepository.findUsersByUserName(authentication.getName());
 		if (userFromDB.size() > 0) {
 			return userFromDB.get(0);
+		} else {
+			throw new Exception(authentication.getName() + " is not registered");
 		}
-		return null;
 	}
 
 	@PutMapping("/updateUser")
-	public ResponseEntity<HashMap<String, Object>> updateUser(@RequestBody Users user) {
-		HashMap<String, Object> output = new HashMap<>();
+	public Users updateUser(@RequestBody Users user) {
+		Users savedUser = null;
 		List<Users> userFromDB = userRepository.findUsersByUserName(user.getUserName());
 		if (userFromDB.size() > 0) {
 			user.setPassword(encoder.encode(user.getPassword()));
-			Users savedUser = userRepository.save(user);
-			output.put("success", savedUser);
-			return new ResponseEntity<HashMap<String,Object>>(output, HttpStatus.OK);
+			savedUser = userRepository.save(user);
 		}
-		output.put("error", user.getUserName()+" does not exists");
-		return new ResponseEntity<HashMap<String,Object>>(output,HttpStatus.NOT_FOUND);
+		return savedUser;
 	}
 
 	@DeleteMapping("delete/{userName}")
 	public ResponseEntity<SuccessResponse> deleteUser(@PathVariable String userName) throws Exception {
-		SuccessResponse success = new SuccessResponse(userRepository.deleteUserByUserName(userName));
+		SuccessResponse success = new SuccessResponse(userService.deleteGivenUserByUserName(userName));
 		return new ResponseEntity<>(success, HttpStatus.OK);
 	}
 
