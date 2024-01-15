@@ -8,7 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,9 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import eCom.backEnd.dao.repository.UserRepository;
 import eCom.backEnd.entity.Users;
+import eCom.backEnd.message.SuccessResponse;
+import eCom.backEnd.service.UserService;
 
 @RestController
-@RequestMapping("/ecom/users")
+@RequestMapping("/ecom/user")
 public class UserController {
 
 	@Autowired
@@ -28,21 +32,23 @@ public class UserController {
 	@Autowired
 	PasswordEncoder encoder;
 
+	@Autowired
+	UserService userService;
+
 	@PostMapping("/register")
-	public ResponseEntity<HashMap<String, String>> registerUser(@RequestBody Users users) throws Exception {
+	public ResponseEntity<Users> registerUser(@RequestBody Users user) throws Exception {
 		HashMap<String, String> output = new HashMap<>();
 
-		List<Users> userFromDB = userRepository.findUsersByUserName(users.getUserName());
+		List<Users> userFromDB = userRepository.findUsersByUserName(user.getUserName());
 		if (userFromDB.size() > 0) {
-			output.put("error", userFromDB.get(0).getUserName() + " already exists");
-			return new ResponseEntity<HashMap<String, String>>(output, HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<Users>(user, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		users.setPassword(encoder.encode(users.getPassword()));
-		users.setRole("USER");
-		users.setActive(1);
-		userRepository.save(users);
-		output.put("success", users.getUserName() + " created successfully");
-		return new ResponseEntity<HashMap<String, String>>(output, HttpStatus.CREATED);
+		user.setPassword(encoder.encode(user.getPassword()));
+		user.setRole("USER");
+		user.setActive(1);
+		userRepository.save(user);
+		return new ResponseEntity<Users>(user,
+				HttpStatus.CREATED);
 	}
 
 	@GetMapping("/authenticate")
@@ -66,6 +72,12 @@ public class UserController {
 		}
 		output.put("error", user.getUserName()+" does not exists");
 		return new ResponseEntity<HashMap<String,Object>>(output,HttpStatus.NOT_FOUND);
+	}
+
+	@DeleteMapping("delete/{userName}")
+	public ResponseEntity<SuccessResponse> deleteUser(@PathVariable String userName) throws Exception {
+		SuccessResponse success = new SuccessResponse(userRepository.deleteUserByUserName(userName));
+		return new ResponseEntity<>(success, HttpStatus.OK);
 	}
 
 }

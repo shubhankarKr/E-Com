@@ -1,5 +1,6 @@
 package eCom.backEnd.config;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -63,14 +64,22 @@ public class SecurityConfig implements WebMvcConfigurer {
 					}
 				}))
 				.csrf((csrf) -> csrf.csrfTokenRequestHandler(requestHandler)
-						.ignoringRequestMatchers("/ecom/users/register")
+						.ignoringRequestMatchers("/ecom/user/register")
 						.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
 				.addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
 				.authorizeHttpRequests((requests) -> requests
-						.requestMatchers("/ecom/users/register", "/ecom/metadata/**").permitAll()
+						.requestMatchers(getAuthenticationIgnoredApis()).permitAll()
 						.requestMatchers("/**").authenticated())
 				.formLogin(Customizer.withDefaults()).httpBasic(Customizer.withDefaults());
 		return http.build();
+	}
+
+	public String[] getAuthenticationIgnoredApis() {
+		ArrayList<String> ignoreApis = new ArrayList<>();
+		ignoreApis.add("/ecom/user/register");
+		ignoreApis.add("/ecom/metadata/**");
+		ignoreApis.add("/ecom/user/delete/**");
+		return ignoreApis.toArray(new String[ignoreApis.size()]);
 	}
 
 }
