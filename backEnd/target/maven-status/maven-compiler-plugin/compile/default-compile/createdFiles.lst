@@ -18,9 +18,9 @@ eCom\backEnd\dao\UserDao.class
 eCom\backEnd\entity\Users.class
 eCom\backEnd\entity\Category.class
 eCom\backEnd\controller\UserController.class
+eCom\backEnd\service\UserAuthenticationService.class
 eCom\backEnd\dao\repository\ProductRepository.class
 eCom\backEnd\message\ErrorResponse.class
 eCom\backEnd\service\UserService.class
 eCom\backEnd\dao\repository\UserRepository.class
-eCom\backEnd\service\user\UserService.class
 eCom\backEnd\entity\Products.class

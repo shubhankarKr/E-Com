@@ -40,7 +40,8 @@ public class LogInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		this.cache.put(getStartKey(request), System.currentTimeMillis());
-		logger.info("Received RequestTimeStamp {} for URL : {}", LocalDateTime.now(), request.getRequestURL());
+		logger.debug("Received RequestTimeStamp {} from {} for URL : {}", LocalDateTime.now(),
+				request.getHeader("host"), request.getRequestURL());
 		return true;
 	}
 
@@ -50,8 +51,10 @@ public class LogInterceptor implements HandlerInterceptor {
 		this.cache.put(getEndKey(request), System.currentTimeMillis());
 		Long startTime = (Long) this.cache.get(getStartKey(request)).get();
 		Long endTime = (Long) this.cache.get(getEndKey(request)).get();
-		logger.info("Received ResponseTimeStamp {} for URL : {}", LocalDateTime.now(), request.getRequestURL());
-		logger.info("Total time taken in millis is : {} ms", endTime - startTime);
+		logger.debug("Received ResponseTimeStamp {} from {} for URL : {}", LocalDateTime.now(),
+				request.getHeader("host"), request.getRequestURL());
+		logger.debug("Total time taken from {} in millis to execute: {} is : {} ms ", request.getHeader("host"),
+				request.getRequestURL(), endTime - startTime);
 	}
 
 	public String generateKey(HttpServletRequest request) {

@@ -3,6 +3,7 @@ D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\advice\ExceptionControll
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\controller\ProductsController.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\entity\Products.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\filter\interceptor\LogInterceptor.java
+D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\service\UserAuthenticationService.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\dao\repository\UserRepository.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\dao\UserDao.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\dao\repository\CategoryRepository.java
@@ -18,7 +19,6 @@ D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\entity\Category.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\daoImpl\UserDaoImp.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\entity\Cart.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\message\ResonseMessage.java
-D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\service\user\UserService.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\controller\MetadataController.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\message\ErrorResponse.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\dao\repository\ProductRepository.java

@@ -79,7 +79,11 @@ CREATE TABLE `cart` (
 )ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
-select * from users;
+select * from users order by user_name desc ;
+
+Show Index from users;
+ ALTER TABLE users DROP INDEX user_name;
+ ALTER TABLE users DROP INDEX email;
 
 
 

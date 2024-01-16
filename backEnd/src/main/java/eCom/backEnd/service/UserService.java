@@ -1,6 +1,6 @@
 package eCom.backEnd.service;
 
 public interface UserService {
-	String deleteGivenUserByUserName(String userName) throws Exception;
+	public String deleteUser(String userName) throws Exception;
 
 }
