@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import eCom.backEnd.dao.repository.ProductRepository;
 import eCom.backEnd.entity.Products;
+import eCom.backEnd.service.UserAuthenticationService;
 
 @RestController
 @RequestMapping("ecom/products")
@@ -20,6 +21,9 @@ public class ProductsController {
 
 	@Autowired
 	ProductRepository productRepository;
+
+	@Autowired
+	UserAuthenticationService authenticationService;
 
 	@GetMapping("/getByCategoryId/{categoryId}")
 	public List<Products> findProductsByCategoryId(@PathVariable int categoryId) {
@@ -33,6 +37,7 @@ public class ProductsController {
 
 	@PostMapping("/save")
 	public Products saveProduct(@RequestBody Products products) {
+		products.setUpdatedBy(authenticationService.getCurrentUser());
 		return productRepository.save(products);
 	}
 
