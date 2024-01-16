@@ -49,12 +49,11 @@ public class Products {
 	@Column(name = "image_id")
 	private String imageId;
 
-	@Column(name = "category_id")
-	private int categoryId;
-
 	@OneToMany
 	@JoinColumn(name = "category_id")
 	private List<Category> categoryList;
+
+	private int categoryId;
 
 	private int stock;
 

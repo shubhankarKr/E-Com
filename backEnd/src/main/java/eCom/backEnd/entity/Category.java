@@ -1,7 +1,6 @@
 package eCom.backEnd.entity;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -12,7 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -34,9 +33,9 @@ public class Category {
 
 	private String name;
 
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "product_id")
-	List<Products> productList;
+	Products product;
 
 	public int getId() {
 		return id;
@@ -70,12 +69,12 @@ public class Category {
 		this.name = name;
 	}
 
-	public List<Products> getProductList() {
-		return productList;
+	public Products getProduct() {
+		return product;
 	}
 
-	public void setProductList(List<Products> productList) {
-		this.productList = productList;
+	public void setProduct(Products product) {
+		this.product = product;
 	}
 
 }

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: eCom.backEnd.BackEndApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.22 s -- in eCom.backEnd.BackEndApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.31 s -- in eCom.backEnd.BackEndApplicationTests
