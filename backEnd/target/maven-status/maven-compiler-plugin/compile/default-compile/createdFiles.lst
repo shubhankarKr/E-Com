@@ -18,7 +18,6 @@ eCom\backEnd\dao\UserDao.class
 eCom\backEnd\entity\Users.class
 eCom\backEnd\entity\Category.class
 eCom\backEnd\controller\UserController.class
-eCom\backEnd\entity\mapping\ProductsCategoryMapping.class
 eCom\backEnd\service\UserAuthenticationService.class
 eCom\backEnd\dao\repository\ProductRepository.class
 eCom\backEnd\message\ErrorResponse.class

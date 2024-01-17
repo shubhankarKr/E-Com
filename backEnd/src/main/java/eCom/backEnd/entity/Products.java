@@ -6,6 +6,8 @@ import java.util.List;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,7 +26,7 @@ public class Products {
 	@Id
 	@Column(name = "product_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int productId;
+	private int id;
 
 	@Column(name = "created_at")
 	@CreationTimestamp
@@ -52,7 +54,10 @@ public class Products {
 	private String imageId;
 
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "products_category_mapping", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+	@JsonManagedReference
+	@JoinTable(name = "products_category_mapping",
+	joinColumns = @JoinColumn(name = "product_id"), 
+	inverseJoinColumns = @JoinColumn(name = "category_id"))
 	private List<Category> categoryList;
 
 	private int categoryId;
@@ -61,12 +66,12 @@ public class Products {
 
 	private String buyer;
 
-	public int getProductId() {
-		return productId;
+	public int getId() {
+		return id;
 	}
 
-	public void setProductId(int productId) {
-		this.productId = productId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public LocalDateTime getCreatedAt() {

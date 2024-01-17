@@ -31,8 +31,8 @@ public class ProductsController {
 	}
 
 	@GetMapping("/getByProductId/{productId}")
-	public Products findProductsByProductId(@PathVariable int productId) {
-		return productRepository.findProductsByProductId(productId);
+	public Products findProductsById(@PathVariable int productId) {
+		return productRepository.findProductsById(productId);
 	}
 
 	@PostMapping("/save")

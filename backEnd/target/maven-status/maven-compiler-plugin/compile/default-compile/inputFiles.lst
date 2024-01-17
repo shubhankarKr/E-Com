@@ -4,7 +4,6 @@ D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\controller\ProductsContr
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\entity\Products.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\filter\interceptor\LogInterceptor.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\service\UserAuthenticationService.java
-D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\entity\mapping\ProductsCategoryMapping.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\dao\repository\UserRepository.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\dao\UserDao.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\dao\repository\CategoryRepository.java

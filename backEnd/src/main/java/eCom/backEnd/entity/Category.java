@@ -1,15 +1,20 @@
 package eCom.backEnd.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -31,8 +36,9 @@ public class Category {
 
 	private String name;
 
-//	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "categoryList")
-//	private List<Products> productList;
+	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "categoryList")
+	@JsonBackReference
+	private List<Products> productList;
 
 	public int getId() {
 		return id;
@@ -66,12 +72,12 @@ public class Category {
 		this.name = name;
 	}
 
-//	public List<Products> getProductList() {
-//		return productList;
-//	}
-//
-//	public void setProductList(List<Products> productList) {
-//		this.productList = productList;
-//	}
+	public List<Products> getProductList() {
+		return productList;
+	}
+
+	public void setProductList(List<Products> productList) {
+		this.productList = productList;
+	}
 
 }

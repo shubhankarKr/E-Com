@@ -2,103 +2,82 @@
 CREATE DATABASE  IF NOT EXISTS  `u730611153_ecommerce`;
 use `u730611153_ecommerce`;
 
--- drop table users;
-
-create table `category`(
-	`category_id` int(11) PRIMARY KEY AUTO_INCREMENT,
-	`created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	`updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	`name` varchar(100) NOT NULL,
-    `product_id` int DEFAULT NULL
-)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-ALTER TABLE category ADD UNIQUE(NAME);
-insert into category(name) values('Mobile');
-insert into category(name) values('Mobile Accessories');
-insert into category(name) values('Smart Wearable Tech');
-insert into category(name) values('Health Care Appliances');
-insert into category(name) values('Laptops');
-insert into category(name) values('Desktop PCs');
-insert into category(name) values('Speakers');
-insert into category(name) values('Camera');
-insert into category(name) values('Camera Accessories ');
-insert into category(name) values('Kitchen Appliances');
-
-create table `products`(
-	`product_id` int(11) PRIMARY KEY AUTO_INCREMENT,
-    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	`updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `description` varchar(500) DEFAULT NULL,
-	`name` varchar(100) NOT NULL,
-    `updated_by` varchar(255) NOT NULL,
-    `price` int DEFAULT -1,
-    `discount` int DEFAULT 0,
-    `color` varchar(20) DEFAULT NULL,
-    `image_id` varchar(255) DEFAULT NULL,
-    `category_id` int NOT NULL,
-	`stock` int DEFAULT 0,
-    `buyer` varchar(255) DEFAULT NULL
-)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-alter table category add constraint FK_categoy foreign key (category_id) references products (product_id);
-alter table products add constraint FK_product foreign key (product_id) references category (category_id);
-create table `users`(
-	`user_id` int(11) PRIMARY KEY AUTO_INCREMENT,
-    `password` VARCHAR(200) NOT NULL,
-    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	`updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	`user_name` varchar(100) UNIQUE NOT NULL,
-    `email` varchar(100) UNIQUE NOT NULL,
-    `role` varchar(50) NOT NULL default 'USER',
-	`active` int NOT NULL DEFAULT 1
-)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
--- insert into users(user_id,password,user_name,email) values (1,'a','Clerk','he@gmail.com');
-create table `order`(
-	`id` int(11) PRIMARY KEY AUTO_INCREMENT,
-    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	`updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    `cart_id` int,
-	`buyer_id` int DEFAULT NULL,
-	`seller_id` int DEFAULT NULL,
-    `payment_status` int DEFAULT NULL,
-    `order_status` int DEFAULT NULL
-    
-)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-
-CREATE TABLE `cart` (
-	`cart_id`INT AUTO_INCREMENT PRIMARY KEY,
-    `user_id` INT,
-    `product_id` INT,
-    `product_name` VARCHAR(255),
-    `price` DECIMAL(10, 2),
-    `quantity` INT,
-    `total` DECIMAL(10, 2),
-    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-     FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (product_id) REFERENCES products(product_id)
-)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-
-select * from products;
 drop table category;
+drop table products;
+drop table cart;
+drop table users;
 
-Show Index from categories;
- ALTER TABLE users DROP INDEX user_name;
- ALTER TABLE users DROP INDEX email;
- 
- create table products_category_mapping(
- product_id int not null,
-    category_id int not null
-    )ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-    
-alter table products_category_mapping add constraint fK_prduct_mapping 
-foreign key (product_id) references products(product_id);
+-- Create category table
+CREATE TABLE category (
+    category_id SERIAL PRIMARY KEY,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    name VARCHAR(100) NOT NULL UNIQUE
+);
 
-alter table products_category_mapping add constraint fK_category_mapping 
-foreign key (category_id) references category(category_id);
-	
- 
+-- Insert data into category table
+INSERT INTO category(name) VALUES ('Mobile');
+INSERT INTO category(name) VALUES ('Mobile Accessories');
+INSERT INTO category(name) VALUES ('Smart Wearable Tech');
+INSERT INTO category(name) VALUES ('Health Care Appliances');
+INSERT INTO category(name) VALUES ('Laptops');
+INSERT INTO category(name) VALUES ('Desktop PCs');
+INSERT INTO category(name) VALUES ('Speakers');
+INSERT INTO category(name) VALUES ('Camera');
+INSERT INTO category(name) VALUES ('Camera Accessories ');
+INSERT INTO category(name) VALUES ('Kitchen Appliances');
 
+-- Create products table
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    description VARCHAR(500),
+    name VARCHAR(100) NOT NULL,
+    updated_by VARCHAR(255) NOT NULL,
+    price INT DEFAULT -1,
+    discount INT DEFAULT 0,
+    color VARCHAR(20),
+    image_id VARCHAR(255),
+    stock INT DEFAULT 0,
+    buyer VARCHAR(255)
+);
 
+-- Create users table
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    password VARCHAR(200) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    user_name VARCHAR(100) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    role VARCHAR(50) NOT NULL DEFAULT 'USER',
+    active INT NOT NULL DEFAULT 1
+);
 
+-- Create order table
+CREATE TABLE orders (
+    id SERIAL PRIMARY KEY,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    cart_id INT,
+    buyer_id INT,
+    seller_id INT,
+    payment_status INT,
+    order_status INT
+);
 
+-- Create cart table
+CREATE TABLE cart (
+    cart_id SERIAL PRIMARY KEY,
+    user_id INT,
+    product_id INT,
+    product_name VARCHAR(255),
+    price DECIMAL(10, 2),
+    quantity INT,
+    total DECIMAL(10, 2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Select data from users table
+SELECT * FROM users;

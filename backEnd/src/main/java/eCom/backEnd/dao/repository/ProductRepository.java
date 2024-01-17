@@ -9,6 +9,6 @@ import eCom.backEnd.entity.Products;
 public interface ProductRepository extends JpaRepository<Products, Integer> {
 	public List<Products> findProductsByCategoryId(int categoryId);
 
-	public Products findProductsByProductId(int productId);
+	public Products findProductsById(int productId);
 
 }
