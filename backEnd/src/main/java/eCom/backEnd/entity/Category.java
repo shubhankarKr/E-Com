@@ -10,8 +10,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -33,9 +31,8 @@ public class Category {
 
 	private String name;
 
-	@ManyToOne
-	@JoinColumn(name = "product_id")
-	Products product;
+//	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "categoryList")
+//	private List<Products> productList;
 
 	public int getId() {
 		return id;
@@ -69,12 +66,12 @@ public class Category {
 		this.name = name;
 	}
 
-	public Products getProduct() {
-		return product;
-	}
-
-	public void setProduct(Products product) {
-		this.product = product;
-	}
+//	public List<Products> getProductList() {
+//		return productList;
+//	}
+//
+//	public void setProductList(List<Products> productList) {
+//		this.productList = productList;
+//	}
 
 }

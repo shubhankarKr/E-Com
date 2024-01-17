@@ -79,11 +79,25 @@ CREATE TABLE `cart` (
 )ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
-select * from users order by user_name desc ;
+select * from products;
+drop table category;
 
-Show Index from users;
+Show Index from categories;
  ALTER TABLE users DROP INDEX user_name;
  ALTER TABLE users DROP INDEX email;
+ 
+ create table products_category_mapping(
+ product_id int not null,
+    category_id int not null
+    )ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+    
+alter table products_category_mapping add constraint fK_prduct_mapping 
+foreign key (product_id) references products(product_id);
+
+alter table products_category_mapping add constraint fK_category_mapping 
+foreign key (category_id) references category(category_id);
+	
+ 
 
 
 
