@@ -1,6 +1,7 @@
 package eCom.backEnd.serviceImpl;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,12 @@ public class ProductsServiceImpl implements ProductsService {
 	public ProductsDTO findProducts(int productId) throws Exception {
 		// TODO Auto-generated method stub
 		return productsDao.findProducts(productId);
+	}
+
+	@Override
+	public Set<ProductsDTO> getAllProducts() throws Exception {
+		// TODO Auto-generated method stub
+		return productsDao.getAllProducts();
 	}
 	
 

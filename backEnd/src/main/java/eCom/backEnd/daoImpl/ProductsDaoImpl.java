@@ -17,6 +17,7 @@ import eCom.backEnd.model.dto.CategoryDTO;
 import eCom.backEnd.model.dto.ProductsDTO;
 import eCom.backEnd.service.UserAuthenticationService;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 
 @Repository
 public class ProductsDaoImpl implements ProductsDao{
@@ -70,5 +71,20 @@ public class ProductsDaoImpl implements ProductsDao{
 		Products entity= entityManager.find(Products.class, productId);
 		return entity.getProductsDTO(entity);
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Set<ProductsDTO> getAllProducts() throws Exception {
+		Set<ProductsDTO> res= new HashSet<>();
+		Query query= entityManager.createQuery("select p from Products p");
+		List<Products> products= query.getResultList();
+		if(!products.isEmpty()) {
+			for (Products products2 : products) {
+				res.add(products2.getProductsDTO(products2));
+			}
+		}
+		return res;
+	}
+	
 
 }

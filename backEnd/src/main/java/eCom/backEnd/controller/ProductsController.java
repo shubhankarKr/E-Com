@@ -1,6 +1,7 @@
 package eCom.backEnd.controller;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,7 @@ import eCom.backEnd.model.dto.ProductsDTO;
 import eCom.backEnd.service.ProductsService;
 
 @RestController
-@RequestMapping("ecom/products")
+@RequestMapping("/ecom/products")
 public class ProductsController {
 
 	@Autowired
@@ -29,6 +30,11 @@ public class ProductsController {
 	@GetMapping("/getByProductId/{productId}")
 	public ProductsDTO findProductsById(@PathVariable int productId) throws Exception {
 		return productsService.findProducts(productId);
+	}
+	
+	@GetMapping("/getAllProducts")
+	public Set<ProductsDTO> getAllProducts() throws Exception {
+		return productsService.getAllProducts();
 	}
 
 	@PostMapping(value = "/save" , consumes="application/json",produces = "application/json")
