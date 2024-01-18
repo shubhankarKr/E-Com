@@ -85,7 +85,7 @@ public class Category {
 			category.setName(categoryDTO.getName());
 			category.setCreatedAt(categoryDTO.getCreatedAt());
 			category.setUpdatedAt(categoryDTO.getUpdatedAt());
-
+			category.setId(categoryDTO.getId());
 			Set<ProductsDTO> productsDTOs = new HashSet<>();
 			Set<Products> products = categoryDTO.getProductList();
 			if (products != null) {

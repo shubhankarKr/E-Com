@@ -181,7 +181,7 @@ public class Products {
 			productsDTO.setBuyer(products.getBuyer());
 			productsDTO.setPrice(products.getPrice());
 			productsDTO.setStock(products.getStock());
-
+			productsDTO.setId(products.getId());
 			Set<CategoryDTO> categoryDTOs = new HashSet<>();
 			if (products.getCategoryList() != null) {
 				for (Category category : products.getCategoryList()) {
