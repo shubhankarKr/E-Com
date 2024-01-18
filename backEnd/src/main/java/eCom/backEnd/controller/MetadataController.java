@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import eCom.backEnd.dao.repository.CategoryRepository;
 import eCom.backEnd.entity.Category;
+import eCom.backEnd.model.dto.CategoryDTO;
+import eCom.backEnd.service.CategoryService;
 
 @RestController
 @RequestMapping("/ecom/metadata")
@@ -23,10 +25,13 @@ public class MetadataController {
 
 	@Autowired
 	CategoryRepository categoryRepository;
+	
+	@Autowired
+	CategoryService categoryService;
 
 	@GetMapping("/getAllCategory")
-	public List<Category> getAllCategory() {
-		return categoryRepository.findAll();
+	public List<CategoryDTO> getAllCategory() throws Exception {
+		return categoryService.getAllCategories();
 	}
 
 	@DeleteMapping("/deleteCategoryById/{id}")

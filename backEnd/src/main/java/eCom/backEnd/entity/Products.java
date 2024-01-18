@@ -1,13 +1,16 @@
 package eCom.backEnd.entity;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import eCom.backEnd.model.dto.CategoryDTO;
+import eCom.backEnd.model.dto.ProductsDTO;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,7 +29,7 @@ public class Products {
 	@Id
 	@Column(name = "product_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Integer id;
 
 	@Column(name = "created_at")
 	@CreationTimestamp
@@ -44,9 +47,9 @@ public class Products {
 	private String updatedBy;
 
 	@Column(name = "price")
-	private int price;
+	private Integer price;
 
-	private int discount;
+	private Integer discount;
 
 	private String color;
 
@@ -54,23 +57,20 @@ public class Products {
 	private String imageId;
 
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JsonManagedReference
-	@JoinTable(name = "products_category_mapping",
-	joinColumns = @JoinColumn(name = "product_id"), 
-	inverseJoinColumns = @JoinColumn(name = "category_id"))
-	private List<Category> categoryList;
+	@JoinTable(name = "products_category_mapping", 
+		joinColumns = @JoinColumn(name = "product_id"), 
+		inverseJoinColumns = @JoinColumn(name = "category_id"))
+	private Set<Category> categoryList;
 
-	private int categoryId;
-
-	private int stock;
+	private Integer stock;
 
 	private String buyer;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -114,19 +114,19 @@ public class Products {
 		this.updatedBy = updatedBy;
 	}
 
-	public int getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 
-	public int getDiscount() {
+	public Integer getDiscount() {
 		return discount;
 	}
 
-	public void setDiscount(int discount) {
+	public void setDiscount(Integer discount) {
 		this.discount = discount;
 	}
 
@@ -146,19 +146,19 @@ public class Products {
 		this.imageId = imageId;
 	}
 
-	public List<Category> getCategoryList() {
+	public Set<Category> getCategoryList() {
 		return categoryList;
 	}
 
-	public void setCategoryList(List<Category> categoryList) {
+	public void setCategoryList(Set<Category> categoryList) {
 		this.categoryList = categoryList;
 	}
 
-	public int getStock() {
+	public Integer getStock() {
 		return stock;
 	}
 
-	public void setStock(int stock) {
+	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
 
@@ -170,12 +170,34 @@ public class Products {
 		this.buyer = buyer;
 	}
 
-	public int getCategoryId() {
-		return categoryId;
-	}
+	public ProductsDTO getProductsDTO(Products products) {
+		ProductsDTO productsDTO = new ProductsDTO();
+		if (products != null) {
+			productsDTO.setColor(products.getColor());
+			productsDTO.setDescription(products.getDescription());
+			productsDTO.setDiscount(products.getDiscount());
+			productsDTO.setImageId(products.getImageId());
+			productsDTO.setName(products.getName());
+			productsDTO.setBuyer(products.getBuyer());
+			productsDTO.setPrice(products.getPrice());
+			productsDTO.setStock(products.getStock());
 
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
+			Set<CategoryDTO> categoryDTOs = new HashSet<>();
+			if (products.getCategoryList() != null) {
+				for (Category category : products.getCategoryList()) {
+					CategoryDTO categoryDTO = new CategoryDTO();
+					categoryDTO.setCreatedAt(category.getCreatedAt());
+					categoryDTO.setId(category.getId());
+					categoryDTO.setName(category.getName());
+					categoryDTO.setUpdatedAt(category.getUpdatedAt());
+					categoryDTOs.add(categoryDTO);
+				}
+
+			}
+			productsDTO.setCategoryList(categoryDTOs);
+
+		}
+		return productsDTO;
 	}
 
 }

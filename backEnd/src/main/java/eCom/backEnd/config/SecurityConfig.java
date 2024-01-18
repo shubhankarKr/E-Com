@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.cache.Cache;
 import org.springframework.cache.concurrent.ConcurrentMapCache;
 import org.springframework.context.annotation.Bean;
@@ -32,6 +33,11 @@ public class SecurityConfig implements WebMvcConfigurer {
 	@Bean
 	Cache cache() {
 		return new ConcurrentMapCache("myCache");
+	}
+	
+	@Bean
+	ModelMapper modelMapper(){
+	  return new ModelMapper();
 	}
 
 	@Override

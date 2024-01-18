@@ -12,6 +12,7 @@ public class ExceptionControllerAdvice {
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<ErrorResponse> EmployeeExceptionalHandler(Exception exception) {
 		ErrorResponse error = new ErrorResponse(exception.getMessage());
+		exception.printStackTrace();
 		return new ResponseEntity<ErrorResponse>(error, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }

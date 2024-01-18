@@ -1,14 +1,14 @@
 package eCom.backEnd.entity;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
-import jakarta.persistence.CascadeType;
+import eCom.backEnd.model.dto.CategoryDTO;
+import eCom.backEnd.model.dto.ProductsDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +24,7 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "category_id")
-	private int id;
+	private Integer id;
 
 	@Column(name = "created_at")
 	@CreationTimestamp
@@ -36,15 +36,14 @@ public class Category {
 
 	private String name;
 
-	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "categoryList")
-	@JsonBackReference
-	private List<Products> productList;
+	@ManyToMany(mappedBy = "categoryList")
+	Set<Products> productList;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -72,12 +71,43 @@ public class Category {
 		this.name = name;
 	}
 
-	public List<Products> getProductList() {
+	public Set<Products> getProductList() {
 		return productList;
 	}
 
-	public void setProductList(List<Products> productList) {
+	public void setProductList(Set<Products> productList) {
 		this.productList = productList;
 	}
 
+	public CategoryDTO getCategoryDTO(Category categoryDTO) {
+		CategoryDTO category = new CategoryDTO();
+		if (categoryDTO != null) {
+			category.setName(categoryDTO.getName());
+			category.setCreatedAt(categoryDTO.getCreatedAt());
+			category.setUpdatedAt(categoryDTO.getUpdatedAt());
+
+			Set<ProductsDTO> productsDTOs = new HashSet<>();
+			Set<Products> products = categoryDTO.getProductList();
+			if (products != null) {
+				for (Products product : products) {
+					ProductsDTO productDTo = new ProductsDTO();
+					productDTo.setColor(product.getColor());
+					productDTo.setDescription(product.getDescription());
+					productDTo.setDiscount(product.getDiscount());
+					productDTo.setImageId(product.getImageId());
+					productDTo.setName(product.getName());
+					productDTo.setBuyer(product.getBuyer());
+					productDTo.setPrice(product.getPrice());
+					productDTo.setStock(product.getStock());
+					productDTo.setId(product.getId());
+					productDTo.setCreatedAt(product.getCreatedAt());
+					productDTo.setUpdatedAt(product.getUpdatedAt());
+					productsDTOs.add(productDTo);
+				}
+			}
+			category.setProductList(productsDTOs);
+		}
+		return category;
+
+	}
 }

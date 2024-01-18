@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import eCom.backEnd.dao.repository.ProductRepository;
 import eCom.backEnd.entity.Products;
-import eCom.backEnd.service.UserAuthenticationService;
+import eCom.backEnd.model.dto.ProductsDTO;
+import eCom.backEnd.service.ProductsService;
 
 @RestController
 @RequestMapping("ecom/products")
@@ -23,22 +24,16 @@ public class ProductsController {
 	ProductRepository productRepository;
 
 	@Autowired
-	UserAuthenticationService authenticationService;
-
-	@GetMapping("/getByCategoryId/{categoryId}")
-	public List<Products> findProductsByCategoryId(@PathVariable int categoryId) {
-		return productRepository.findProductsByCategoryId(categoryId);
-	}
+	ProductsService productsService;
 
 	@GetMapping("/getByProductId/{productId}")
-	public Products findProductsById(@PathVariable int productId) {
-		return productRepository.findProductsById(productId);
+	public ProductsDTO findProductsById(@PathVariable int productId) throws Exception {
+		return productsService.findProducts(productId);
 	}
 
-	@PostMapping("/save")
-	public Products saveProduct(@RequestBody Products products) {
-		products.setUpdatedBy(authenticationService.getCurrentUser());
-		return productRepository.save(products);
+	@PostMapping(value = "/save" , consumes="application/json",produces = "application/json")
+	public ProductsDTO saveProduct(@RequestBody ProductsDTO productsDTO) throws Exception {
+		return productsService.saveProduct(productsDTO);
 	}
 
 	@PostMapping("/saveAll")
@@ -47,7 +42,7 @@ public class ProductsController {
 	}
 
 	@PutMapping("/update")
-	public Products updateProduct(@RequestBody Products products) {
-		return productRepository.save(products);
+	public ProductsDTO updateProduct(@RequestBody ProductsDTO productsDTO) throws Exception {
+		return productsService.updateProducts(productsDTO);
 	}
 }
