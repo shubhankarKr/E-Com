@@ -27,6 +27,7 @@ public class UserDaoImp implements UserDao {
 		return (userName + " deleted successfully");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Users> findActiveUser(String userName) {
 		Query query = entityManager.createQuery("select u from Users u where userName = : userName AND active=:active");

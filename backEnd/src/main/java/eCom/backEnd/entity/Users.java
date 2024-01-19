@@ -1,17 +1,21 @@
 package eCom.backEnd.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -39,9 +43,19 @@ public class Users {
 
 	private String email;
 
-	private String role;
-
 	private int active;
+	
+	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+	@JsonManagedReference
+	List<Authority> authorities;
+	
+	public List<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(List<Authority> authorities) {
+		this.authorities = authorities;
+	}
 
 	public int getId() {
 		return id;
@@ -89,14 +103,6 @@ public class Users {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
 	}
 
 	public int getActive() {

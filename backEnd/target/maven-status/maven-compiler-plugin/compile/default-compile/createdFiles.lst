@@ -23,6 +23,8 @@ eCom\backEnd\dao\repository\CategoryRepository.class
 eCom\backEnd\advice\ExceptionControllerAdvice.class
 eCom\backEnd\dao\UserDao.class
 eCom\backEnd\entity\Users.class
+eCom\backEnd\dao\repository\AuthoriryRepository.class
+eCom\backEnd\entity\Authority.class
 eCom\backEnd\entity\Category.class
 eCom\backEnd\controller\UserController.class
 eCom\backEnd\model\dto\CategoryDTO.class

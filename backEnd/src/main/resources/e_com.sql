@@ -71,3 +71,23 @@ ALTER TABLE products_category_mapping ALTER product_id SET DEFAULT 0;
 ALTER TABLE products ALTER category_id SET DEFAULT 0;
 
 insert into products (buyer,color,created_at,description,discount,image_id,name,price,stock,updated_at,updated_by,product_id) values (NULL,NULL,'2024-01-18 20:24:42',NULL,NULL,NULL,'Tesiing ',NULL,NULL,'2024-01-18 20:24:42','anonymousUser',2009);
+
+
+create table authorities(
+	id int (11) PRIMARY KEY AUTO_INCREMENT,
+    role varchar(50) NOT NULL,
+    user_id int not NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+ALTER TABLE users drop COLUMN role;
+
+select * from authorities;
+select * from users;
+
+-- drop table authorities;
+-- drop table users;
+insert into authorities(name,user_id) values('ROLE_USER',852);
+
+update authorities set name='ROLE_USER' where user_id=852;
+

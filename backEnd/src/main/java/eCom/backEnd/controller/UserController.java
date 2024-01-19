@@ -1,11 +1,14 @@
 package eCom.backEnd.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import eCom.backEnd.dao.UserDao;
+import eCom.backEnd.dao.repository.AuthoriryRepository;
 import eCom.backEnd.dao.repository.UserRepository;
+import eCom.backEnd.entity.Authority;
 import eCom.backEnd.entity.Users;
 import eCom.backEnd.message.SuccessResponse;
 import eCom.backEnd.service.UserService;
@@ -37,6 +42,9 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	AuthoriryRepository authoriryRepository;
 
 	@PostMapping("/register")
 	public Users registerUser(@RequestBody Users user) throws Exception {
@@ -45,9 +53,21 @@ public class UserController {
 			throw new Exception(user.getUserName() + " is already registered");
 		}
 		user.setPassword(encoder.encode(user.getPassword()));
-		user.setRole("USER");
 		user.setActive(1);
-		userRepository.save(user);
+		Users savedUser=userRepository.save(user);
+		List<Authority> authorityList= user.getAuthorities();
+		if(user.getAuthorities() !=null && !authorityList.isEmpty()) {
+			for (Authority authority : authorityList) {
+				authority.setUser(savedUser);
+			}
+		}else {
+			authorityList= new ArrayList<>();
+			Authority a= new Authority();
+			a.setName("ROLE_USER");
+			a.setUser(savedUser);
+			authorityList.add(a);
+		}
+		authoriryRepository.saveAll(authorityList);
 		return user;
 	}
 

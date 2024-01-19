@@ -23,9 +23,11 @@ D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\service\ProductsService.
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\dao\CategoryDao.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\serviceImpl\CategoryServiceImpl.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\entity\Users.java
+D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\entity\Authority.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\serviceImpl\ProductsServiceImpl.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\aspect\LoggingAspect.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\entity\Category.java
+D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\dao\repository\AuthoriryRepository.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\daoImpl\UserDaoImp.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\entity\Cart.java
 D:\Development\e-com\backEnd\src\main\java\eCom\backEnd\message\ResonseMessage.java
