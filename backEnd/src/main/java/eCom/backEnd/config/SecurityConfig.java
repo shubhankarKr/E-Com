@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
+import org.apache.tomcat.util.http.CookieProcessor;
+import org.apache.tomcat.util.http.CookieProcessorBase;
+import org.apache.tomcat.util.http.Rfc6265CookieProcessor;
 import org.modelmapper.ModelMapper;
 import org.springframework.cache.Cache;
 import org.springframework.cache.concurrent.ConcurrentMapCache;
@@ -34,6 +37,13 @@ public class SecurityConfig implements WebMvcConfigurer {
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+	
+	@Bean
+    CookieProcessor cookieProcessor() {
+		Rfc6265CookieProcessor cookieProcessor = new Rfc6265CookieProcessor();
+        cookieProcessor.setSameSiteCookies("None"); 
+        return cookieProcessor;
+    }
 
 	@Bean
 	Cache cache() {
@@ -52,23 +62,18 @@ public class SecurityConfig implements WebMvcConfigurer {
 
 	@Bean
 	SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-		
-		  CsrfTokenRequestAttributeHandler requestHandler = new
-		  CsrfTokenRequestAttributeHandler();
-		  requestHandler.setCsrfRequestAttributeName("_csrf");
-		  
-		  http.securityContext((context) -> context.requireExplicitSave(false))
-		  .sessionManagement(session ->
-		  session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
-		.cors(corsCustomizer -> corsCustomizer.configurationSource(new CorsConfigurationSource() {
+
+		CsrfTokenRequestAttributeHandler requestHandler = new CsrfTokenRequestAttributeHandler();
+		requestHandler.setCsrfRequestAttributeName("_csrf");
+
+		http.securityContext((context) -> context.requireExplicitSave(false))
+				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
+				.cors(corsCustomizer -> corsCustomizer.configurationSource(new CorsConfigurationSource() {
 					@Override
 					public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
 						CorsConfiguration config = new CorsConfiguration();
-						config.setAllowedOrigins(Arrays.asList(
-								"http://localhost:4200", 
-								"http://localhost:5173",
-								"https://ecommerce-react-three-wheat.vercel.app"
-								));
+						config.setAllowedOrigins(Arrays.asList("http://localhost:4200", "http://localhost:5173",
+								"https://ecommerce-react-three-wheat.vercel.app"));
 						config.setAllowedMethods(Collections.singletonList("*"));
 						config.setAllowCredentials(true);
 						config.setAllowedHeaders(Collections.singletonList("*"));
@@ -76,14 +81,13 @@ public class SecurityConfig implements WebMvcConfigurer {
 						return config;
 					}
 				}))
-				.csrf((csrf) ->  csrf.csrfTokenRequestHandler(requestHandler)
+				.csrf((csrf) -> csrf.csrfTokenRequestHandler(requestHandler)
 						.ignoringRequestMatchers("/ecom/user/register", "/ecom/user/delete/**")
 						.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
-				.addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
-				.authorizeHttpRequests((requests) -> requests
-						.requestMatchers(getAuthenticationIgnoredApis()).permitAll()
-						.requestMatchers("/**").hasAnyRole("USER")
-						.requestMatchers("/**").authenticated())
+				.addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class).authorizeHttpRequests(
+						(requests) -> requests.requestMatchers(getAuthenticationIgnoredApis()).permitAll()
+//						.requestMatchers("/**").hasAnyRole("USER")
+								.requestMatchers("/**").authenticated())
 				.formLogin(Customizer.withDefaults()).httpBasic(Customizer.withDefaults());
 		return http.build();
 	}

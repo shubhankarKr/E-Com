@@ -97,5 +97,9 @@ public class UserController {
 		SuccessResponse success = new SuccessResponse(userService.deleteUser(userName));
 		return new ResponseEntity<>(success, HttpStatus.OK);
 	}
-
+	
+	@GetMapping("/allAuthorities")
+	List<Authority> findAllAuthorities(){
+		return authoriryRepository.findAll();
+	}
 }
