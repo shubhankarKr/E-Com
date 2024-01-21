@@ -1,11 +1,11 @@
 use `u730611153_ecommerce`;
--- drop table users;
+ -- drop table users;
 
 create table category(
 	category_id int(11) PRIMARY KEY AUTO_INCREMENT,
 	created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	name varchar(100) NOT NULL,
+	name varchar(100) UNIQUE NOT NULL,
     product_id int DEFAULT NULL
 );
 ALTER TABLE category ADD UNIQUE(NAME);
@@ -42,7 +42,6 @@ create table users(
 	updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	user_name varchar(100) UNIQUE NOT NULL,
     email varchar(100) UNIQUE NOT NULL,
-    role varchar(50) NOT NULL default 'USER',
 	active int NOT NULL DEFAULT 1
 );
 -- insert into users(user_id,password,user_name,email) values (1,'a','Clerk','he@gmail.com');
@@ -59,7 +58,7 @@ create table orders(
     order_status int DEFAULT NULL
     
 );
-select * from products;
+select * from category;
 select * from products_category_mapping;
 desc products;
 select next_val as id_val from products_seq for update;
@@ -67,7 +66,7 @@ select next_val as id_val from products_seq for update;
 update products_seq set next_val= 10000 where next_val=1101;
 insert into products_category_mapping values(1003,6);
 
-ALTER TABLE products_category_mapping ALTER product_id SET DEFAULT 0;
+ALTER TABLE category add unique(name);
 ALTER TABLE products ALTER category_id SET DEFAULT 0;
 
 insert into products (buyer,color,created_at,description,discount,image_id,name,price,stock,updated_at,updated_by,product_id) values (NULL,NULL,'2024-01-18 20:24:42',NULL,NULL,NULL,'Tesiing ',NULL,NULL,'2024-01-18 20:24:42','anonymousUser',2009);
@@ -75,19 +74,26 @@ insert into products (buyer,color,created_at,description,discount,image_id,name,
 
 create table authorities(
 	id int (11) PRIMARY KEY AUTO_INCREMENT,
-    role varchar(50) NOT NULL,
+    name varchar(50) NOT NULL,
     user_id int not NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
-ALTER TABLE users drop COLUMN role;
+create table products_category_mapping(
+	id int (11) PRIMARY KEY AUTO_INCREMENT,
+    category_id int ,
+    product_id int 
+);
 
-select * from authorities;
-select * from users;
+ ALTER TABLE authorities drop COLUMN role;
 
--- drop table authorities;
+select * from products_category_mapping;
+select * from products;
+
+ drop table products_category_mapping;
 -- drop table users;
 insert into authorities(name,user_id) values('ROLE_USER',852);
 
 update authorities set name='ROLE_USER' where user_id=852;
 
+desc products_category_mapping;

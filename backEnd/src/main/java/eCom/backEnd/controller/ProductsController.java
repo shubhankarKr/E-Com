@@ -32,6 +32,11 @@ public class ProductsController {
 		return productsService.findProducts(productId);
 	}
 	
+	@GetMapping("/getByCategoryName/{name}")
+	public List<ProductsDTO> findProductsByCategoryName(@PathVariable String name) throws Exception {
+		return productsService.findProductsByCategoryName(name);
+	}
+	
 	@GetMapping("/getAllProducts")
 	public Set<ProductsDTO> getAllProducts() throws Exception {
 		return productsService.getAllProducts();

@@ -1,5 +1,6 @@
 package eCom.backEnd.daoImpl;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -85,6 +86,23 @@ public class ProductsDaoImpl implements ProductsDao{
 		}
 		return res;
 	}
-	
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ProductsDTO> findProductsByCategoryName(String name, Integer id) throws Exception {
+		Query query = entityManager
+				.createQuery("select p.productId from ProductsCategoryMapping p where p.categoryId = :id ");
+		query.setParameter("id", id);
+		List<Integer> productIdList = query.getResultList();
+
+		query = entityManager.createQuery("select p from Products p where p.id in :productIdList ");
+		query.setParameter("productIdList", productIdList);
+
+		List<Products> entity = query.getResultList();
+		List<ProductsDTO> output = new ArrayList<>();
+		for (Products products : entity) {
+			output.add(products.getProductsDTO(products));
+		}
+		return output;
+	}
 }

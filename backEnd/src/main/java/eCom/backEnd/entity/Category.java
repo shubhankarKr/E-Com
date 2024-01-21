@@ -7,6 +7,8 @@ import java.util.Set;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import eCom.backEnd.model.dto.CategoryDTO;
 import eCom.backEnd.model.dto.ProductsDTO;
 import jakarta.persistence.Column;
@@ -37,6 +39,7 @@ public class Category {
 	private String name;
 
 	@ManyToMany(mappedBy = "categoryList")
+	@JsonBackReference
 	Set<Products> productList;
 
 	public Integer getId() {

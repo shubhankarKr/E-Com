@@ -21,7 +21,6 @@ public class LogInterceptor implements HandlerInterceptor {
 
 	private final Cache cache;
 
-	@Autowired
 	public LogInterceptor(Cache cache) {
 		this.cache = cache;
 	}

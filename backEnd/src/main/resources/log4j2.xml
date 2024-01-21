@@ -24,14 +24,26 @@
 		</RollingFile>
   </Appenders>
   <Loggers>
-	   <Logger name="org.springframework" additivity="false" level="debug">
+	   <Logger name="org.springframework.security" additivity="false" level="trace">
 <!--            <AppenderRef ref="Console" />-->
             <AppenderRef ref="rollingFile" />
         </Logger>
-	   <Logger name="eCom.backEnd" additivity="false" level="debug">
-            <AppenderRef ref="Console" />
-            <AppenderRef ref="rollingFile" />
-        </Logger>
+<!--	   <Logger name="eCom.backEnd" additivity="false" level="debug">-->
+<!--            <AppenderRef ref="Console" />-->
+<!--            <AppenderRef ref="rollingFile" />-->
+<!--        </Logger>-->
+<!--        <Logger name="org.springframework.security.web.FilterChainProxy" additivity="false" level="trace">-->
+<!--            <AppenderRef ref="Console" />-->
+<!--            <AppenderRef ref="rollingFile" />-->
+<!--        </Logger>-->
+<!--        <Logger name="org.springframework.security.web.session" additivity="false" level="trace">-->
+<!--            <AppenderRef ref="Console" />-->
+<!--            <AppenderRef ref="rollingFile" />-->
+<!--        </Logger>-->
+<!--        <Logger name="org.springframework.security.web.csrf" additivity="false" level="trace">-->
+<!--            <AppenderRef ref="Console" />-->
+<!--            <AppenderRef ref="rollingFile" />-->
+<!--        </Logger>-->
     <Root level="info">
       <AppenderRef ref="Console"/>
     </Root>

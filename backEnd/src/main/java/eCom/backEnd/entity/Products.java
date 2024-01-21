@@ -60,6 +60,7 @@ public class Products {
 	@JoinTable(name = "products_category_mapping", 
 		joinColumns = @JoinColumn(name = "product_id"), 
 		inverseJoinColumns = @JoinColumn(name = "category_id"))
+	@JsonManagedReference
 	private Set<Category> categoryList;
 
 	private Integer stock;

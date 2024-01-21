@@ -11,4 +11,5 @@ public interface ProductsDao {
 	public ProductsDTO updateProducts(ProductsDTO productsDTO) throws Exception;
 	public ProductsDTO findProducts(int productId) throws Exception;
 	public Set<ProductsDTO> getAllProducts() throws Exception;
+	public List<ProductsDTO> findProductsByCategoryName(String name, Integer integer) throws Exception;
 }
