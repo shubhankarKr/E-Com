@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
@@ -40,7 +39,7 @@ public class LogInterceptor implements HandlerInterceptor {
 			throws Exception {
 		this.cache.put(getStartKey(request), System.currentTimeMillis());
 		logger.debug("Received RequestTimeStamp {} from {} for URL : {}", LocalDateTime.now(),
-				request.getHeader("host"), request.getRequestURL());
+				request.getRemoteAddr(), request.getRequestURL());
 		return true;
 	}
 
@@ -51,8 +50,8 @@ public class LogInterceptor implements HandlerInterceptor {
 		Long startTime = (Long) this.cache.get(getStartKey(request)).get();
 		Long endTime = (Long) this.cache.get(getEndKey(request)).get();
 		logger.debug("Received ResponseTimeStamp {} from {} for URL : {}", LocalDateTime.now(),
-				request.getHeader("host"), request.getRequestURL());
-		logger.debug("Total time taken from {} in millis to execute: {} is : {} ms ", request.getHeader("host"),
+				request.getRemoteAddr(), request.getRequestURL());
+		logger.debug("Total time taken from {} in millis to execute: {} is : {} ms ", request.getRemoteAddr(),
 				request.getRequestURL(), endTime - startTime);
 	}
 

@@ -24,7 +24,7 @@
 		</RollingFile>
   </Appenders>
   <Loggers>
-	   <Logger name="org.springframework.security" additivity="false" level="trace">
+	   <Logger name="org.springframework.security" additivity="false" level="debug">
 <!--            <AppenderRef ref="Console" />-->
             <AppenderRef ref="rollingFile" />
         </Logger>
@@ -40,10 +40,10 @@
 <!--            <AppenderRef ref="Console" />-->
 <!--            <AppenderRef ref="rollingFile" />-->
 <!--        </Logger>-->
-<!--        <Logger name="org.springframework.security.web.csrf" additivity="false" level="trace">-->
-<!--            <AppenderRef ref="Console" />-->
-<!--            <AppenderRef ref="rollingFile" />-->
-<!--        </Logger>-->
+        <Logger name="eCom.backEnd.filter.interceptor" additivity="false" level="debug">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="rollingFile" />
+        </Logger>
     <Root level="info">
       <AppenderRef ref="Console"/>
     </Root>
