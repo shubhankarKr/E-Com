@@ -94,7 +94,6 @@ public class Category {
 			if (products != null) {
 				for (Products product : products) {
 					ProductsDTO productDTo = new ProductsDTO();
-					productDTo.setColor(product.getColor());
 					productDTo.setDescription(product.getDescription());
 					productDTo.setDiscount(product.getDiscount());
 					productDTo.setImageId(product.getImageId());

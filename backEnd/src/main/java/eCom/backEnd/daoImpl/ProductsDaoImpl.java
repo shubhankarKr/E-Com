@@ -11,10 +11,13 @@ import org.springframework.stereotype.Repository;
 
 import eCom.backEnd.dao.ProductsDao;
 import eCom.backEnd.dao.repository.CategoryRepository;
+import eCom.backEnd.dao.repository.ColorRepository;
 import eCom.backEnd.dao.repository.ProductRepository;
 import eCom.backEnd.entity.Category;
+import eCom.backEnd.entity.Color;
 import eCom.backEnd.entity.Products;
 import eCom.backEnd.model.dto.CategoryDTO;
+import eCom.backEnd.model.dto.ColorDTO;
 import eCom.backEnd.model.dto.ProductsDTO;
 import eCom.backEnd.service.UserAuthenticationService;
 import jakarta.persistence.EntityManager;
@@ -38,6 +41,9 @@ public class ProductsDaoImpl implements ProductsDao{
 	@Autowired
 	UserAuthenticationService userAuthenticationService;
 	
+	@Autowired
+	ColorRepository colorRepository;
+	
 	@Override
 	public ProductsDTO saveProduct(ProductsDTO productsDTO) throws Exception {
 		Set<Category> categories=new HashSet<>();
@@ -52,6 +58,16 @@ public class ProductsDaoImpl implements ProductsDao{
 		entity.setUpdatedBy(userAuthenticationService.getCurrentUser());
 		entity.setCategoryList(categories);
 		entityManager.persist(entity);
+		if(productsDTO.getColorList()!=null) {
+			List<Color> colorList= new ArrayList<>();
+			for (ColorDTO colorDTO : productsDTO.getColorList()) {
+				Color color=modelMapper.map(colorDTO, Color.class);
+				color.setProductId(entity.getId());
+				colorRepository.save(color);
+				colorList.add(color);
+			}
+//			entity.setColorList(colorList);
+		}
 		ProductsDTO dto= entity.getProductsDTO(entity);
 		return dto;
 	}

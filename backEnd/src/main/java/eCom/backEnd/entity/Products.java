@@ -1,25 +1,32 @@
 package eCom.backEnd.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import eCom.backEnd.model.dto.CategoryDTO;
+import eCom.backEnd.model.dto.ColorDTO;
 import eCom.backEnd.model.dto.ProductsDTO;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -38,7 +45,7 @@ public class Products {
 	@Column(name = "updated_at")
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;
-
+	
 	private String description;
 
 	private String name;
@@ -50,8 +57,6 @@ public class Products {
 	private Integer price;
 
 	private Integer discount;
-
-	private String color;
 
 	@Column(name = "image_id")
 	private String imageId;
@@ -66,6 +71,9 @@ public class Products {
 	private Integer stock;
 
 	private String buyer;
+	
+	@OneToMany(mappedBy = "productId",fetch = FetchType.EAGER)
+	private List<Color> colorList;
 
 	public Integer getId() {
 		return id;
@@ -131,14 +139,6 @@ public class Products {
 		this.discount = discount;
 	}
 
-	public String getColor() {
-		return color;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
-
 	public String getImageId() {
 		return imageId;
 	}
@@ -170,11 +170,18 @@ public class Products {
 	public void setBuyer(String buyer) {
 		this.buyer = buyer;
 	}
+	
+	public List<Color> getColorList() {
+		return colorList;
+	}
+
+	public void setColorList(List<Color> colorList) {
+		this.colorList = colorList;
+	}
 
 	public ProductsDTO getProductsDTO(Products products) {
 		ProductsDTO productsDTO = new ProductsDTO();
 		if (products != null) {
-			productsDTO.setColor(products.getColor());
 			productsDTO.setDescription(products.getDescription());
 			productsDTO.setDiscount(products.getDiscount());
 			productsDTO.setImageId(products.getImageId());
@@ -196,6 +203,17 @@ public class Products {
 
 			}
 			productsDTO.setCategoryList(categoryDTOs);
+			
+			List<ColorDTO> colorDTOs= new ArrayList<>();
+			if(products.getColorList()!=null) {
+				for (Color color : products.getColorList()) {
+					ColorDTO dto= new ColorDTO();
+					dto.setId(color.getId());
+					dto.setColorCode(color.getColorCode());
+					colorDTOs.add(dto);
+				}
+			}
+			productsDTO.setColorList(colorDTOs);
 
 		}
 		return productsDTO;

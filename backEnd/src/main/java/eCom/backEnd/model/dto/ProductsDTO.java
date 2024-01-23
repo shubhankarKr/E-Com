@@ -2,7 +2,11 @@ package eCom.backEnd.model.dto;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import eCom.backEnd.entity.Category;
 import eCom.backEnd.entity.Products;
@@ -24,8 +28,6 @@ public class ProductsDTO {
 
 	private Integer discount;
 
-	private String color;
-
 	private String imageId;
 
 	private Set<CategoryDTO> categoryList = new HashSet<>();
@@ -33,6 +35,11 @@ public class ProductsDTO {
 	private Integer stock;
 
 	private String buyer;
+	
+	private List<ColorDTO> colorList;
+	
+	@Autowired
+	ModelMapper modelMapper;
 
 	public Integer getId() {
 		return id;
@@ -98,14 +105,6 @@ public class ProductsDTO {
 		this.discount = discount;
 	}
 
-	public String getColor() {
-		return color;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
-
 	public String getImageId() {
 		return imageId;
 	}
@@ -137,11 +136,18 @@ public class ProductsDTO {
 	public void setBuyer(String buyer) {
 		this.buyer = buyer;
 	}
+	
+	public List<ColorDTO> getColorList() {
+		return colorList;
+	}
+
+	public void setColorList(List<ColorDTO> colorList) {
+		this.colorList = colorList;
+	}
 
 	public Products getProductsEntity(ProductsDTO productsDTO) {
 		Products products = new Products();
 		if (productsDTO != null) {
-			products.setColor(productsDTO.getColor());
 			products.setDescription(productsDTO.getDescription());
 			products.setDiscount(productsDTO.getDiscount());
 			products.setImageId(productsDTO.getImageId());
@@ -162,6 +168,14 @@ public class ProductsDTO {
 				}
 			}
 			products.setCategoryList(categories);
+			
+//			List<Color> colorList= new ArrayList<>();
+//			if(productsDTO.getColorDTOList()!=null) {
+//				for (ColorDTO dto : productsDTO.getColorDTOList()) {
+//					colorList.add(modelMapper.map(dto, Color.class));
+//				}
+//			}
+//			products.setColorList(colorList);
 		}
 		return products;
 	}

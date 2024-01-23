@@ -70,7 +70,6 @@ public class CategoryDTO {
 			if (productsDTOs != null) {
 				for (ProductsDTO productsDTO : productsDTOs) {
 					Products product= new Products();
-					product.setColor(productsDTO.getColor());
 					product.setDescription(productsDTO.getDescription());
 					product.setDiscount(productsDTO.getDiscount());
 					product.setImageId(productsDTO.getImageId());

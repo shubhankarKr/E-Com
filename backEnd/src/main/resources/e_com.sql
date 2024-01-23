@@ -85,6 +85,12 @@ create table products_category_mapping(
     product_id int 
 );
 
+create table color(
+	id int (11) PRIMARY KEY AUTO_INCREMENT,
+    color_code varchar(50) NOT NULL ,
+    product_id int 
+);
+
  ALTER TABLE authorities drop COLUMN role;
 
 select * from products_category_mapping;
@@ -97,3 +103,4 @@ insert into authorities(name,user_id) values('ROLE_USER',852);
 update authorities set name='ROLE_USER' where user_id=852;
 
 desc products_category_mapping;
+
