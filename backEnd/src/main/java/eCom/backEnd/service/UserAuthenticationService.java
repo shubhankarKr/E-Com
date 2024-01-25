@@ -26,18 +26,19 @@ public class UserAuthenticationService implements UserDetailsService {
 	UserDao userDao;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) {
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		List<Users> users;
 		User result = null;
 		try {
 			users = userDao.findActiveUser(username);
 			if (users.size() == 0) {
-				throw new UsernameNotFoundException("User Does not exists!");
+				throw new UsernameNotFoundException(username+" is not registered");
 			} else {
 				result = new User(users.get(0).getUserName(), users.get(0).getPassword(), getGrantedAuthorities(users.get(0).getAuthorities()));
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (UsernameNotFoundException e) {
+//			e.printStackTrace();
+			throw e;
 		}
 		return result;
 	}

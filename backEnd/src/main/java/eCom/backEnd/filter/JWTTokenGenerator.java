@@ -31,7 +31,7 @@ public class JWTTokenGenerator extends OncePerRequestFilter {
 		if(auth != null) {
 			SecretKey key =Keys.hmacShaKeyFor(Constants.JWT_KEY.getBytes(StandardCharsets.UTF_8));
 			String jwt=Jwts.builder()
-					.setIssuer("e_come")
+					.setIssuer("ecom")
 					.setSubject("JWT Token")
 					.claim("userName", auth.getName())
 					.claim("authorities", getAuthorities(auth.getAuthorities()))

@@ -4,16 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-import org.apache.tomcat.util.http.CookieProcessor;
-import org.apache.tomcat.util.http.CookieProcessorBase;
-import org.apache.tomcat.util.http.Rfc6265CookieProcessor;
-import org.apache.tomcat.util.http.SameSiteCookies;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.cache.concurrent.ConcurrentMapCache;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.ResponseCookie.ResponseCookieBuilder;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -21,16 +17,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
-import org.springframework.security.web.csrf.DefaultCsrfToken;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import eCom.backEnd.constant.Constants;
-import eCom.backEnd.filter.CsrfCookieFilter;
+import eCom.backEnd.exception.UserAuthenticationEntryPoint;
 import eCom.backEnd.filter.JWTTokenGenerator;
 import eCom.backEnd.filter.JWTTokenValidator;
 import eCom.backEnd.filter.interceptor.LogInterceptor;
@@ -38,6 +31,9 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @Configuration
 public class SecurityConfig implements WebMvcConfigurer {
+	
+	@Autowired
+	UserAuthenticationEntryPoint authenticationEntryPoint;
 
 	@Bean
 	PasswordEncoder passwordEncoder() {
@@ -84,7 +80,8 @@ public class SecurityConfig implements WebMvcConfigurer {
 						(requests) -> requests.requestMatchers(getAuthenticationIgnoredApis()).permitAll()
 						.requestMatchers("/**").hasAnyRole("USER")
 								.requestMatchers("/**").authenticated())
-				.formLogin(Customizer.withDefaults()).httpBasic(Customizer.withDefaults());
+				.formLogin(Customizer.withDefaults()).httpBasic(
+						(httpBasic)->httpBasic.authenticationEntryPoint(authenticationEntryPoint));
 		return http.build();
 	}
 
@@ -94,5 +91,5 @@ public class SecurityConfig implements WebMvcConfigurer {
 		ignoreApis.add("/ecom/metadata/**");
 		return ignoreApis.toArray(new String[ignoreApis.size()]);
 	}
-
+	
 }
