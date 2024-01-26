@@ -18,7 +18,7 @@ public class UserAuthenticationEntryPoint extends BasicAuthenticationEntryPoint 
     public void commence(
       HttpServletRequest request, HttpServletResponse response, AuthenticationException authEx) 
       throws IOException {
-        response.addHeader("WWW-Authenticate", "Basic realm=" + getRealmName());
+//        response.addHeader("WWW-Authenticate", "Basic realm=" + getRealmName());
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         PrintWriter writer = response.getWriter();
         writer.println(authEx.getMessage());

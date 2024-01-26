@@ -2,6 +2,7 @@ package eCom.backEnd.filter;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 import javax.crypto.SecretKey;
 
@@ -43,7 +44,15 @@ public class JWTTokenValidator extends OncePerRequestFilter{
 	
 	@Override
 	protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-		return request.getServletPath().equals("/ecom/user/authenticate");
+		return getIgnoredAPIsListValidators(request.getServletPath());
+	}
+	
+	private boolean getIgnoredAPIsListValidators(String path) {
+		ArrayList<String> arrayList= new ArrayList<>();
+		arrayList.add("/ecom/user/authenticate");
+		arrayList.add("/ecom/metadata/getAllCategory");
+		arrayList.add("/ecom/products/getAllProducts");
+		return arrayList.stream().anyMatch(e->e.contains(path));
 	}
 
 }

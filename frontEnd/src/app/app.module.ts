@@ -7,6 +7,15 @@ import { LoginComponent } from './component/login/login.component';
 import { HomepageComponent } from './component/homepage/homepage.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientModule,
+  HttpClientXsrfModule,
+} from '@angular/common/http';
+import { APIList } from './constants/APIList';
+import { RequestInterceptor } from './interceptor/requestInterceptor/request.interceptor';
+import { UserService } from './service/user/user.service';
 
 @NgModule({
   declarations: [
@@ -14,13 +23,26 @@ import { FooterComponent } from './component/footer/footer.component';
     LoginComponent,
     HomepageComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpClientXsrfModule.withOptions({
+      headerName: 'token',
+    }),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true,
+    },
+    APIList,
+    UserService,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
