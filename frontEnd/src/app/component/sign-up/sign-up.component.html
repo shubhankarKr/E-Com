@@ -1,0 +1,22 @@
+<div class="w-50 mx-auto my-2">
+    <form [formGroup]="signUpForm" (ngSubmit)="signUp()" class="w-50 mx-auto my-2">
+        <div class="mb-3">
+            <Label class="form-label" for="userName">User Name </Label>
+            <input class="form-control" formControlName="userName" type="text" name="userName" id="userName" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="password"> Passowrd</label>
+            <input class="form-control" formControlName="password" type="password" name="password" id="password" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="email"> Email</label>
+            <input class="form-control" formControlName="email" type="password" name="email" id="email" />
+        </div>
+        <button [disabled]="!signUpForm.valid" type="submit" class="btn btn-primary">
+            Sing Up
+        </button>
+    </form>
+    <div class="text text-danger" *ngIf="errorMessage">
+        {{ errorMessage }}
+    </div>
+</div>

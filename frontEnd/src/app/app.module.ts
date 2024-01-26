@@ -16,6 +16,7 @@ import {
 import { APIList } from './constants/APIList';
 import { RequestInterceptor } from './interceptor/requestInterceptor/request.interceptor';
 import { UserService } from './service/user/user.service';
+import { SignUpComponent } from './component/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { UserService } from './service/user/user.service';
     HomepageComponent,
     HeaderComponent,
     FooterComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,

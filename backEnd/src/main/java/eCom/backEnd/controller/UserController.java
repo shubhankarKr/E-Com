@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,33 +44,43 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
-	
+
 	@Autowired
 	AuthoriryRepository authoriryRepository;
+	
+	@Autowired
+	Environment environment;
 
 	@PostMapping("/register")
 	public Users registerUser(@RequestBody Users user) throws Exception {
 		List<Users> usersLists = userDao.findActiveUser(user.getUserName());
 		if (usersLists.size() > 0) {
-			throw new Exception(user.getUserName() + " is already registered");
+			throw new Exception(user.getUserName()+" " +environment.getProperty("IS_ALREADY_REGISTERED"));
+		}
+		if(user.getEmail()!=null) {
+			Users found=userRepository.findUsersByEmail(user.getEmail());
+			if(found!=null) {
+				throw new Exception(user.getEmail()+" "+environment.getProperty("EMAIL_ALREADY_REGISTERED"));
+			}
 		}
 		user.setPassword(encoder.encode(user.getPassword()));
 		user.setActive(1);
-		Users savedUser=userRepository.save(user);
-		List<Authority> authorityList= user.getAuthorities();
-		if(user.getAuthorities() !=null && !authorityList.isEmpty()) {
+		Users savedUser = null;
+		savedUser = userRepository.save(user);
+		List<Authority> authorityList = user.getAuthorities();
+		if (user.getAuthorities() != null && !authorityList.isEmpty()) {
 			for (Authority authority : authorityList) {
 				authority.setUser(savedUser);
 			}
-		}else {
-			authorityList= new ArrayList<>();
-			Authority a= new Authority();
+		} else {
+			authorityList = new ArrayList<>();
+			Authority a = new Authority();
 			a.setName("ROLE_USER");
 			a.setUser(savedUser);
 			authorityList.add(a);
 		}
 		authoriryRepository.saveAll(authorityList);
-		return user;
+		return savedUser;
 	}
 
 	@GetMapping("/authenticate")
@@ -76,9 +88,8 @@ public class UserController {
 		List<Users> userFromDB = userDao.findActiveUser(authentication.getName());
 		if (userFromDB.size() > 0) {
 			return userFromDB.get(0);
-		} else {
-			throw new Exception(authentication.getName() + " is not registered");
 		}
+		return null;
 	}
 
 	@PutMapping("/updateUser")
@@ -97,9 +108,9 @@ public class UserController {
 		SuccessResponse success = new SuccessResponse(userService.deleteUser(userName));
 		return new ResponseEntity<>(success, HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/allAuthorities")
-	List<Authority> findAllAuthorities(){
+	List<Authority> findAllAuthorities() {
 		return authoriryRepository.findAll();
 	}
 }

@@ -1,19 +1,20 @@
 package eCom.backEnd.message;
 
 public class ErrorResponse implements ResonseMessage {
-	private Object error;
+	private Object errorResponse;
 
-	public ErrorResponse(Object error) {
+	public ErrorResponse(Object errorResponse) {
 		super();
-		this.error = error;
+		this.errorResponse = errorResponse;
 	}
 
-	public Object getError() {
-		return error;
+	public Object getErrorResponse() {
+		return errorResponse;
 	}
 
-	public void setError(Object error) {
-		this.error = error;
+	public void setErrorResponse(Object errorResponse) {
+		this.errorResponse = errorResponse;
 	}
+
 
 }

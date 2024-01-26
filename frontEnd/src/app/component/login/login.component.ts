@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
       next: (res) => {
         user.setAuth(true);
         user.setPasswordEmpty();
-        this.userService.setLoggedInUser(user);
         sessionStorage.setItem('token', res.headers.get('token'));
         this.userService.loginUser();
         this.router.navigate(['homepage']);

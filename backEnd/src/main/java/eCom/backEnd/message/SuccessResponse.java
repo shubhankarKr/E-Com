@@ -1,17 +1,19 @@
 package eCom.backEnd.message;
 
 public class SuccessResponse implements ResonseMessage {
-	private Object success;
+	private Object successResponse;
 
-	public SuccessResponse(Object success) {
+	public SuccessResponse(Object successResponse) {
 		super();
-		this.success = success;
-	}
-	public Object getSuccess() {
-		return success;
+		this.successResponse = successResponse;
 	}
 
-	public void setSuccess(Object success) {
-		this.success = success;
+	public Object getSuccessResponse() {
+		return successResponse;
 	}
+
+	public void setSuccessResponse(Object successResponse) {
+		this.successResponse = successResponse;
+	}
+	
 }

@@ -10,6 +10,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import eCom.backEnd.constant.Constants;
@@ -21,8 +22,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+@Component
 public class JWTTokenValidator extends OncePerRequestFilter{
-
+	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
@@ -48,11 +50,16 @@ public class JWTTokenValidator extends OncePerRequestFilter{
 	}
 	
 	private boolean getIgnoredAPIsListValidators(String path) {
-		ArrayList<String> arrayList= new ArrayList<>();
+		return getAuthenticationIgnoredApis().stream().anyMatch(e->e.contains(path));
+	}
+	
+	public ArrayList<String> getAuthenticationIgnoredApis() {
+		ArrayList<String> arrayList = new ArrayList<>();
 		arrayList.add("/ecom/user/authenticate");
 		arrayList.add("/ecom/metadata/getAllCategory");
 		arrayList.add("/ecom/products/getAllProducts");
-		return arrayList.stream().anyMatch(e->e.contains(path));
+		arrayList.add("/ecom/user/register");
+		return arrayList;
 	}
 
 }

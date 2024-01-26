@@ -31,9 +31,12 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @Configuration
 public class SecurityConfig implements WebMvcConfigurer {
-	
+
 	@Autowired
 	UserAuthenticationEntryPoint authenticationEntryPoint;
+
+	@Autowired
+	JWTTokenValidator jwtTokenValidator;
 
 	@Bean
 	PasswordEncoder passwordEncoder() {
@@ -44,10 +47,10 @@ public class SecurityConfig implements WebMvcConfigurer {
 	Cache cache() {
 		return new ConcurrentMapCache("myCache");
 	}
-	
+
 	@Bean
-	ModelMapper modelMapper(){
-	  return new ModelMapper();
+	ModelMapper modelMapper() {
+		return new ModelMapper();
 	}
 
 	@Override
@@ -58,8 +61,8 @@ public class SecurityConfig implements WebMvcConfigurer {
 	@Bean
 	SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 
-		http.sessionManagement( session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-		.cors(corsCustomizer -> corsCustomizer.configurationSource(new CorsConfigurationSource() {
+		http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+				.cors(corsCustomizer -> corsCustomizer.configurationSource(new CorsConfigurationSource() {
 					@Override
 					public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
 						CorsConfiguration config = new CorsConfiguration();
@@ -72,24 +75,20 @@ public class SecurityConfig implements WebMvcConfigurer {
 						config.setMaxAge(3600L);
 						return config;
 					}
-				}))
-				.csrf((csrf) -> csrf.disable())
+				})).csrf((csrf) -> csrf.disable())
 				.addFilterAfter(new JWTTokenGenerator(), BasicAuthenticationFilter.class)
 				.addFilterBefore(new JWTTokenValidator(), BasicAuthenticationFilter.class)
-				.authorizeHttpRequests(
-						(requests) -> requests.requestMatchers(getAuthenticationIgnoredApis()).permitAll()
-						.requestMatchers("/**").hasAnyRole("USER")
-								.requestMatchers("/**").authenticated())
-				.formLogin(Customizer.withDefaults()).httpBasic(
-						(httpBasic)->httpBasic.authenticationEntryPoint(authenticationEntryPoint));
+				.authorizeHttpRequests((requests) -> requests
+						.requestMatchers(getAuthenticationIgnoredApis()
+								.toArray(new String[getAuthenticationIgnoredApis().size()]))
+						.permitAll().requestMatchers("/**").hasAnyRole("USER").requestMatchers("/**").authenticated())
+				.formLogin(Customizer.withDefaults())
+				.httpBasic((httpBasic) -> httpBasic.authenticationEntryPoint(authenticationEntryPoint));
 		return http.build();
 	}
 
-	public String[] getAuthenticationIgnoredApis() {
-		ArrayList<String> ignoreApis = new ArrayList<>();
-		ignoreApis.add("/ecom/user/register");
-		ignoreApis.add("/ecom/metadata/**");
-		return ignoreApis.toArray(new String[ignoreApis.size()]);
+	public ArrayList<String> getAuthenticationIgnoredApis() {
+		return this.jwtTokenValidator.getAuthenticationIgnoredApis();
 	}
-	
+
 }

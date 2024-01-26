@@ -13,7 +13,6 @@ import { User } from 'src/app/model/user';
   providedIn: 'root',
 })
 export class UserService {
-  private loggedInUser!: User;
   private loginFlag = new BehaviorSubject<boolean>(false);
   constructor(
     private http: HttpClient,
@@ -38,11 +37,10 @@ export class UserService {
       .pipe(catchError(this.errorHandler.handleError));
   }
 
-  setLoggedInUser(user: User) {
-    this.loggedInUser = user;
-  }
-  getLoggedInUser(user: User): User {
-    return this.loggedInUser;
+  signUp(data: any) {
+    return this.http
+      .post(this.apiList.REGISTER_API, data)
+      .pipe(catchError(this.errorHandler.handleError));
   }
 
   loginUser() {
@@ -52,6 +50,7 @@ export class UserService {
 
   logoutUser() {
     // console.log('logoutUser method called');
+    sessionStorage.removeItem('token');
     this.loginFlag.next(false);
   }
   getLoginFlag(): Observable<boolean> {

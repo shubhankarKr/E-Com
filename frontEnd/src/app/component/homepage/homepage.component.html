@@ -1,1 +1,8 @@
-<p>homepage works!</p>
+<div class="d-flex flex-row flex-wrap gap-3">
+    <div class="card text-white bg-secondary" style="max-width: 18rem" *ngFor="let product of productList">
+        <div class="card-header">{{ product.id }} - {{ product.name }}</div>
+        <div class="card-body">
+            <h5 class="card-title">Secondary card title</h5>
+        </div>
+    </div>
+</div>

@@ -16,7 +16,11 @@ export class ErrorHandlerService {
     } else if (error.status == 403) {
       errorMessage = 'You are not autherized';
     } else {
-      errorMessage = error.message;
+      if (error.error.errorResponse) {
+        errorMessage = error.error.errorResponse;
+      } else {
+        errorMessage = error.error;
+      }
     }
     return throwError(() => {
       return errorMessage;
