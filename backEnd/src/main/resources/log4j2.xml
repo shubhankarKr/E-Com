@@ -24,9 +24,9 @@
 		</RollingFile>
   </Appenders>
   <Loggers>
-	   <Logger name="org.springframework.security" additivity="false" level="debug">
-<!--            <AppenderRef ref="Console" />-->
-<!--            <AppenderRef ref="rollingFile" />-->
+	   <Logger name="eCom.backEnd.filter.interceptor" additivity="false" level="debug">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="rollingFile" />
         </Logger>
 <!--	   <Logger name="eCom.backEnd" additivity="false" level="debug">-->
 <!--            <AppenderRef ref="Console" />-->

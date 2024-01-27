@@ -53,6 +53,8 @@ public class LogInterceptor implements HandlerInterceptor {
 				request.getRemoteAddr(), request.getRequestURL());
 		logger.debug("Total time taken from {} in millis to execute: {} is : {} ms ", request.getRemoteAddr(),
 				request.getRequestURL(), endTime - startTime);
+		this.cache.evict(getStartKey(request));
+		this.cache.evict(getEndKey(request));
 	}
 
 	public String generateKey(HttpServletRequest request) {
