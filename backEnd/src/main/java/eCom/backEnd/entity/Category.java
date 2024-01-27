@@ -1,16 +1,14 @@
 package eCom.backEnd.entity;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import eCom.backEnd.model.dto.CategoryDTO;
-import eCom.backEnd.model.dto.ProductsDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,6 +19,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "category")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Category {
 
 	@Id
@@ -38,9 +37,18 @@ public class Category {
 
 	private String name;
 
+	private Short active;
+
 	@ManyToMany(mappedBy = "categoryList")
-	@JsonBackReference
 	Set<Products> productList;
+
+	public Short getActive() {
+		return active;
+	}
+
+	public void setActive(Short active) {
+		this.active = active;
+	}
 
 	public Integer getId() {
 		return id;
@@ -82,34 +90,4 @@ public class Category {
 		this.productList = productList;
 	}
 
-	public CategoryDTO getCategoryDTO(Category categoryDTO) {
-		CategoryDTO category = new CategoryDTO();
-		if (categoryDTO != null) {
-			category.setName(categoryDTO.getName());
-			category.setCreatedAt(categoryDTO.getCreatedAt());
-			category.setUpdatedAt(categoryDTO.getUpdatedAt());
-			category.setId(categoryDTO.getId());
-			Set<ProductsDTO> productsDTOs = new HashSet<>();
-			Set<Products> products = categoryDTO.getProductList();
-			if (products != null) {
-				for (Products product : products) {
-					ProductsDTO productDTo = new ProductsDTO();
-					productDTo.setDescription(product.getDescription());
-					productDTo.setDiscount(product.getDiscount());
-					productDTo.setImageId(product.getImageId());
-					productDTo.setName(product.getName());
-					productDTo.setBuyer(product.getBuyer());
-					productDTo.setPrice(product.getPrice());
-					productDTo.setStock(product.getStock());
-					productDTo.setId(product.getId());
-					productDTo.setCreatedAt(product.getCreatedAt());
-					productDTo.setUpdatedAt(product.getUpdatedAt());
-					productsDTOs.add(productDTo);
-				}
-			}
-			category.setProductList(productsDTOs);
-		}
-		return category;
-
-	}
 }

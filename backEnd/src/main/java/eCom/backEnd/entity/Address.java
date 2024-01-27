@@ -18,7 +18,7 @@ import jakarta.validation.constraints.NotNull;
 public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 
 	private String name;
 
@@ -40,11 +40,24 @@ public class Address {
 	@Enumerated(EnumType.STRING)
 	private AddressType addressType;
 	
-	public int getId() {
+	private Short active;
+	
+	public Address() {
+		this.active=1;
+	}
+	public Short getActive() {
+		return active;
+	}
+
+	public void setActive(Short active) {
+		this.active = active;
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

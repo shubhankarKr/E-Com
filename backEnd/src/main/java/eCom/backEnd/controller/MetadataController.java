@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import eCom.backEnd.dao.repository.AuthoriryRepository;
 import eCom.backEnd.dao.repository.CategoryRepository;
+import eCom.backEnd.entity.Authority;
 import eCom.backEnd.entity.Category;
-import eCom.backEnd.model.dto.CategoryDTO;
-import eCom.backEnd.service.CategoryService;
 
 @RestController
 @RequestMapping("/ecom/metadata")
@@ -27,11 +27,11 @@ public class MetadataController {
 	CategoryRepository categoryRepository;
 	
 	@Autowired
-	CategoryService categoryService;
+	AuthoriryRepository authoriryRepository;
 
-	@GetMapping("/getAllCategory")
-	public List<CategoryDTO> getAllCategory() throws Exception {
-		return categoryService.getAllCategories();
+	@GetMapping("/getAuthorities")
+	public List<Authority> getAuthorities() throws Exception {
+		return authoriryRepository.findAllByMd(1);
 	}
 
 	@DeleteMapping("/deleteCategoryById/{id}")

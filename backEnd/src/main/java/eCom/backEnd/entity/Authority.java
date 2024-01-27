@@ -1,5 +1,6 @@
 package eCom.backEnd.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,7 +15,13 @@ public class Authority {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-
+	
+	@Column(name = "md")
+	private Short md;
+	
+	public Authority() {
+		this.md=0;;
+	}
 
 	public int getId() {
 		return id;
@@ -30,5 +37,13 @@ public class Authority {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Short getMd() {
+		return md;
+	}
+
+	public void setMd(Short md) {
+		this.md = md;
 	}
 }

@@ -49,7 +49,7 @@ public class LogInterceptor implements HandlerInterceptor {
 		this.cache.put(getEndKey(request), System.currentTimeMillis());
 		Long startTime = (Long) this.cache.get(getStartKey(request)).get();
 		Long endTime = (Long) this.cache.get(getEndKey(request)).get();
-		logger.debug("Received ResponseTimeStamp {} from {} for URL : {}", LocalDateTime.now(),
+		logger.trace("Received ResponseTimeStamp {} from {} for URL : {}", LocalDateTime.now(),
 				request.getRemoteAddr(), request.getRequestURL());
 		logger.debug("Total time taken from {} in millis to execute: {} is : {} ms ", request.getRemoteAddr(),
 				request.getRequestURL(), endTime - startTime);

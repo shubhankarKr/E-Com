@@ -18,9 +18,6 @@ public class Color {
 	@Column(name = "color_code")
 	private String colorCode;
 
-	@Column(name = "product_id")
-	private int productId;
-
 	public int getId() {
 		return id;
 	}
@@ -35,14 +32,6 @@ public class Color {
 
 	public void setColorCode(String colorCode) {
 		this.colorCode = colorCode;
-	}
-
-	public int getProductId() {
-		return productId;
-	}
-
-	public void setProductId(int productId) {
-		this.productId = productId;
 	}
 
 }

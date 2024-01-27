@@ -2,15 +2,13 @@ package eCom.backEnd.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,15 +19,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import eCom.backEnd.dao.UserDao;
 import eCom.backEnd.dao.repository.AddressRepository;
 import eCom.backEnd.dao.repository.AuthoriryRepository;
 import eCom.backEnd.dao.repository.UserRepository;
-import eCom.backEnd.entity.Address;
 import eCom.backEnd.entity.Authority;
 import eCom.backEnd.entity.Users;
 import eCom.backEnd.message.SuccessResponse;
-import eCom.backEnd.service.UserService;
 import jakarta.validation.Valid;
 
 @RestController
@@ -43,12 +38,6 @@ public class UserController {
 	PasswordEncoder encoder;
 
 	@Autowired
-	UserDao userDao;
-
-	@Autowired
-	UserService userService;
-
-	@Autowired
 	AuthoriryRepository authoriryRepository;
 	
 	@Autowired
@@ -59,9 +48,9 @@ public class UserController {
 
 	@PostMapping("/register")
 	public Users registerUser(@Valid @RequestBody Users user) throws Exception {
-		List<Users> usersLists = userDao.findActiveUser(user.getUserName());
-		if (usersLists.size() > 0) {
-			throw new Exception(user.getUserName()+" " +environment.getProperty("IS_ALREADY_REGISTERED"));
+		Optional<Users> entity = userRepository.findActiveUserByUserName(user.getUserName());
+		if (entity.isPresent()) {
+			throw new Exception(entity.get().getUserName()+" " +environment.getProperty("IS_ALREADY_REGISTERED"));
 		}
 		if(user.getEmail()!=null) {
 			Users found=userRepository.findUsersByEmail(user.getEmail());
@@ -70,7 +59,6 @@ public class UserController {
 			}
 		}
 		user.setPassword(encoder.encode(user.getPassword()));
-		user.setActive(1);
 		if(user.getAuthorityList() == null || user.getAuthorityList().isEmpty()) {
 			user.setAuthorityList(getDefaultAuthority());
 		}
@@ -80,9 +68,9 @@ public class UserController {
 
 	@GetMapping("/authenticate")
 	public Users authenticateUser(Authentication authentication) throws Exception {
-		List<Users> userFromDB = userDao.findActiveUser(authentication.getName());
-		if (userFromDB.size() > 0) {
-			return userFromDB.get(0);
+		Optional<Users> entity = userRepository.findActiveUserByUserName(authentication.getName());
+		if (entity.isPresent()) {
+			return entity.get();
 		}
 		return null;
 	}
@@ -90,18 +78,35 @@ public class UserController {
 	@PutMapping("/updateUser")
 	public Users updateUser(@RequestBody Users user) throws Exception {
 		Users savedUser = null;
-		List<Users> userFromDB = userDao.findActiveUser(user.getUserName());
-		if (userFromDB.size() > 0) {
-			user.setPassword(encoder.encode(user.getPassword()));
+		Optional<Users> optionalUser =userRepository.findById(user.getId());
+		if (!optionalUser .isEmpty()) {
+			savedUser =optionalUser .get();
+			savedUser.setPassword(encoder.encode(user.getPassword()));
+			savedUser.setEmail(user.getEmail());
+			savedUser.setUserName(user.getUserName());
 			savedUser = userRepository.save(user);
 		}
 		return savedUser;
 	}
 
-	@DeleteMapping("delete/{userName}")
+	@DeleteMapping("delete/userName/{userName}")
 	public ResponseEntity<SuccessResponse> deleteUser(@PathVariable String userName) throws Exception {
-		SuccessResponse success = new SuccessResponse(userService.deleteUser(userName));
-		return new ResponseEntity<>(success, HttpStatus.OK);
+		Optional<Users> optionalUser=userRepository.findActiveUserByUserName(userName);
+		if(optionalUser.isPresent()) {
+			userRepository.deleteUserByUserName(userName);
+			return new ResponseEntity<>(new SuccessResponse(userName+ " "+ environment.getProperty("DELETED_SUCCESSFULLY")), HttpStatus.ACCEPTED);
+		}
+		throw new Exception(userName +" "+environment.getProperty("DOES_NOT_EXIST"));
+	}
+	
+	@DeleteMapping("delete/id/{userName}")
+	public ResponseEntity<SuccessResponse> deleteUser(@PathVariable int id) throws Exception {
+		Optional<Users> optionalUser=userRepository.findActiveUserById(id);
+		if(optionalUser.isPresent()) {
+			userRepository.deleteUserById(id);
+			return new ResponseEntity<>(new SuccessResponse(id+ " "+ environment.getProperty("DELETED_SUCCESSFULLY")), HttpStatus.ACCEPTED);
+		}
+		throw new Exception(id +" "+environment.getProperty("DOES_NOT_EXIST"));
 	}
 
 	@GetMapping("/allAuthorities")

@@ -2,6 +2,7 @@ package eCom.backEnd.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -14,27 +15,26 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import eCom.backEnd.dao.UserDao;
+import eCom.backEnd.dao.repository.UserRepository;
 import eCom.backEnd.entity.Authority;
 import eCom.backEnd.entity.Users;
 
 @Service
 public class UserAuthenticationService implements UserDetailsService {
-
+	
 	@Autowired
-	UserDao userDao;
+	UserRepository userRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		List<Users> users;
-		User result = null;
+		UserDetails result;
 		try {
-			users = userDao.findActiveUser(username);
-			if (users.size() == 0) {
-				throw new UsernameNotFoundException(username+" is not registered");
-			} else {
-				result = new User(users.get(0).getUserName(), users.get(0).getPassword(), getGrantedAuthorities(users.get(0).getAuthorityList()));
+			Optional<Users> user = userRepository.findActiveUserByUserName(username);
+			if (user.isEmpty()) {
+				throw new UsernameNotFoundException(username + " is not registered");
 			}
+			result = new User(user.get().getUserName(), user.get().getPassword(),
+					getGrantedAuthorities(user.get().getAuthorityList()));
 		} catch (UsernameNotFoundException e) {
 //			e.printStackTrace();
 			throw e;

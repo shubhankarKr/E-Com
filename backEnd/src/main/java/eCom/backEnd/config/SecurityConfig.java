@@ -83,7 +83,7 @@ public class SecurityConfig implements WebMvcConfigurer {
 								.toArray(new String[getAuthenticationIgnoredApis().size()]))
 						.permitAll().requestMatchers("/**").hasAnyRole("USER").requestMatchers("/**").authenticated())
 				.formLogin(Customizer.withDefaults())
-				.httpBasic((httpBasic) -> httpBasic.authenticationEntryPoint(authenticationEntryPoint));
+				.httpBasic(Customizer.withDefaults());
 		return http.build();
 	}
 

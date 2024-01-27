@@ -7,12 +7,14 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import eCom.backEnd.enums.Gender;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -52,7 +54,7 @@ public class Users {
 	private String email;
 
 	@JsonIgnore
-	private int active;
+	private Short active;
 
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id")
@@ -62,6 +64,22 @@ public class Users {
 	@JoinColumn(name = "user_id")
 	@Valid
 	List<Address> addressList;
+	
+	@Enumerated(EnumType.STRING)
+	private Gender gender;
+	
+	public Users() {
+		super();
+		this.active = 1;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
 
 	public List<Authority> getAuthorityList() {
 		return authorityList;
@@ -118,12 +136,12 @@ public class Users {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public int getActive() {
+	
+	public Short getActive() {
 		return active;
 	}
 
-	public void setActive(int active) {
+	public void setActive(Short active) {
 		this.active = active;
 	}
 
@@ -134,5 +152,4 @@ public class Users {
 	public void setAddressList(List<Address> addressList) {
 		this.addressList = addressList;
 	}
-
 }

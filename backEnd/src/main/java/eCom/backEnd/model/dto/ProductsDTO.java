@@ -144,40 +144,4 @@ public class ProductsDTO {
 	public void setColorList(List<ColorDTO> colorList) {
 		this.colorList = colorList;
 	}
-
-	public Products getProductsEntity(ProductsDTO productsDTO) {
-		Products products = new Products();
-		if (productsDTO != null) {
-			products.setDescription(productsDTO.getDescription());
-			products.setDiscount(productsDTO.getDiscount());
-			products.setImageId(productsDTO.getImageId());
-			products.setName(productsDTO.getName());
-			products.setBuyer(productsDTO.getBuyer());
-			products.setPrice(productsDTO.getPrice());
-			products.setStock(productsDTO.getStock());
-			Set<Category> categories = new HashSet<>();
-			Set<CategoryDTO> categoryDTOs = productsDTO.getCategoryList();
-			if (categoryDTOs != null) {
-				for (CategoryDTO categoryDTO : categoryDTOs) {
-					Category category = new Category();
-					category.setName(categoryDTO.getName());
-					category.setCreatedAt(categoryDTO.getCreatedAt());
-					category.setId(categoryDTO.getId());
-					category.setUpdatedAt(categoryDTO.getUpdatedAt());
-					categories.add(category);
-				}
-			}
-			products.setCategoryList(categories);
-			
-//			List<Color> colorList= new ArrayList<>();
-//			if(productsDTO.getColorDTOList()!=null) {
-//				for (ColorDTO dto : productsDTO.getColorDTOList()) {
-//					colorList.add(modelMapper.map(dto, Color.class));
-//				}
-//			}
-//			products.setColorList(colorList);
-		}
-		return products;
-	}
-
 }
