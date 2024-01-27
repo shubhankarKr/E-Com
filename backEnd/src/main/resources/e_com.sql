@@ -75,8 +75,7 @@ insert into products (buyer,color,created_at,description,discount,image_id,name,
 create table authorities(
 	id int (11) PRIMARY KEY AUTO_INCREMENT,
     name varchar(50) NOT NULL,
-    user_id int not NULL,
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
+    user_id int 
 );
 
 create table products_category_mapping(
