@@ -1,0 +1,845 @@
+2024-01-26 23:29:39 TRACE Closing result set [null]
+2024-01-26 23:29:39 TRACE Closing prepared statement [HikariProxyPreparedStatement@1499924733 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',828287,NULL)]
+2024-01-26 23:29:39 TRACE Releasing statement [HikariProxyPreparedStatement@1499924733 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-26 23:29:39 DEBUG HHH000387: ResultSet's statement was not registered
+2024-01-26 23:29:39 TRACE Closing prepared statement [HikariProxyPreparedStatement@1499924733 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-26 23:29:39 DEBUG Exception clearing maxRows/queryTimeout [No operations allowed after statement closed.]
+2024-01-26 23:29:39 TRACE Releasing JDBC resources
+2024-01-26 23:29:39 TRACE Releasing JDBC resources
+2024-01-26 23:29:39 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:31:05 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:37:04 TRACE Releasing JDBC resources
+2024-01-26 23:48:17 TRACE Releasing JDBC resources
+2024-01-26 23:48:17 TRACE Releasing JDBC resources
+2024-01-26 23:48:17 TRACE Releasing JDBC resources
+2024-01-26 23:48:17 TRACE Releasing JDBC resources
+2024-01-26 23:48:17 TRACE Releasing JDBC resources
+2024-01-26 23:48:17 TRACE Releasing JDBC resources
+2024-01-26 23:48:17 TRACE Releasing JDBC resources
+2024-01-26 23:48:17 TRACE Releasing JDBC resources
+2024-01-26 23:48:17 TRACE Releasing JDBC resources
+2024-01-26 23:48:17 TRACE Releasing JDBC resources
+2024-01-26 23:48:17 TRACE Releasing JDBC resources
+2024-01-26 23:48:17 TRACE Releasing JDBC resources
+2024-01-26 23:48:17 TRACE Releasing JDBC resources
+2024-01-26 23:48:17 TRACE Releasing JDBC resources
+2024-01-26 23:48:18 TRACE Releasing JDBC resources
+2024-01-26 23:48:18 TRACE Releasing JDBC resources
+2024-01-26 23:48:18 TRACE Releasing JDBC resources
+2024-01-26 23:48:18 TRACE Releasing JDBC resources
+2024-01-26 23:48:18 TRACE Releasing JDBC resources
+2024-01-26 23:48:18 TRACE Releasing JDBC resources
+2024-01-26 23:48:18 TRACE Releasing JDBC resources
+2024-01-26 23:48:18 TRACE Releasing JDBC resources
+2024-01-26 23:48:18 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:01 TRACE Releasing JDBC resources
+2024-01-26 23:49:14 TRACE Registering statement [HikariProxyPreparedStatement@347102721 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-26 23:49:14 TRACE Registering result set [null]
+2024-01-26 23:49:14 TRACE Releasing statement [HikariProxyPreparedStatement@347102721 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-26 23:49:14 TRACE Closing result set [null]
+2024-01-26 23:49:14 TRACE Closing prepared statement [HikariProxyPreparedStatement@347102721 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-26 23:49:14 TRACE Releasing JDBC resources
+2024-01-26 23:49:14 TRACE Releasing JDBC resources
+2024-01-26 23:49:14 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:56 TRACE Releasing JDBC resources
+2024-01-26 23:49:57 TRACE Releasing JDBC resources
+2024-01-26 23:49:57 TRACE Releasing JDBC resources
+2024-01-26 23:50:10 TRACE Registering statement [HikariProxyPreparedStatement@747158424 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-26 23:50:10 TRACE Registering result set [null]
+2024-01-26 23:50:10 TRACE Releasing statement [HikariProxyPreparedStatement@747158424 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-26 23:50:10 TRACE Closing result set [null]
+2024-01-26 23:50:10 TRACE Closing prepared statement [HikariProxyPreparedStatement@747158424 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-26 23:50:10 TRACE Releasing JDBC resources
+2024-01-26 23:50:10 TRACE Releasing JDBC resources
+2024-01-26 23:50:10 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:53 TRACE Releasing JDBC resources
+2024-01-26 23:50:56 TRACE Registering statement [HikariProxyPreparedStatement@784797480 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-26 23:50:56 TRACE Registering result set [null]
+2024-01-26 23:50:56 TRACE Releasing statement [HikariProxyPreparedStatement@784797480 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-26 23:50:56 TRACE Closing result set [null]
+2024-01-26 23:50:56 TRACE Closing prepared statement [HikariProxyPreparedStatement@784797480 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-26 23:50:56 TRACE Releasing JDBC resources
+2024-01-26 23:50:56 TRACE Releasing JDBC resources
+2024-01-26 23:50:56 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:51:47 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:25 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:42 TRACE Releasing JDBC resources
+2024-01-26 23:52:43 TRACE Releasing JDBC resources
+2024-01-26 23:52:43 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:32 TRACE Releasing JDBC resources
+2024-01-26 23:54:33 TRACE Releasing JDBC resources
+2024-01-26 23:54:33 TRACE Releasing JDBC resources
+2024-01-26 23:55:32 TRACE Registering statement [HikariProxyPreparedStatement@546416988 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-26 23:55:32 TRACE Registering result set [null]
+2024-01-26 23:55:32 TRACE Releasing statement [HikariProxyPreparedStatement@546416988 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-26 23:55:32 TRACE Closing result set [null]
+2024-01-26 23:55:32 TRACE Closing prepared statement [HikariProxyPreparedStatement@546416988 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-26 23:55:32 TRACE Releasing JDBC resources
+2024-01-26 23:55:32 TRACE Releasing JDBC resources
+2024-01-26 23:55:32 TRACE Releasing JDBC resources
+2024-01-26 23:55:51 TRACE Releasing JDBC resources
+2024-01-26 23:55:51 TRACE Releasing JDBC resources
+2024-01-26 23:55:51 TRACE Releasing JDBC resources
+2024-01-26 23:55:51 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:52 TRACE Releasing JDBC resources
+2024-01-26 23:55:55 TRACE Registering statement [HikariProxyPreparedStatement@795604157 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-26 23:55:55 TRACE Registering result set [null]
+2024-01-26 23:55:55 TRACE Releasing statement [HikariProxyPreparedStatement@795604157 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-26 23:55:55 TRACE Closing result set [null]
+2024-01-26 23:55:55 TRACE Closing prepared statement [HikariProxyPreparedStatement@795604157 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-26 23:55:55 TRACE Releasing JDBC resources
+2024-01-26 23:55:55 TRACE Releasing JDBC resources
+2024-01-26 23:55:55 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:36 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:56:52 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:41 TRACE Releasing JDBC resources
+2024-01-26 23:59:42 TRACE Releasing JDBC resources
+2024-01-26 23:59:42 TRACE Releasing JDBC resources
+2024-01-26 23:59:56 TRACE Registering statement [HikariProxyPreparedStatement@1050037774 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-26 23:59:56 TRACE Registering result set [null]
+2024-01-26 23:59:56 TRACE Releasing statement [HikariProxyPreparedStatement@1050037774 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-26 23:59:56 TRACE Closing result set [null]
+2024-01-26 23:59:56 TRACE Closing prepared statement [HikariProxyPreparedStatement@1050037774 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-26 23:59:56 TRACE Releasing JDBC resources
+2024-01-26 23:59:56 TRACE Releasing JDBC resources
+2024-01-26 23:59:56 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:36 TRACE Releasing JDBC resources
+2024-01-27 00:00:44 TRACE Registering statement [HikariProxyPreparedStatement@786579903 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-27 00:00:44 TRACE Registering result set [null]
+2024-01-27 00:00:44 TRACE Releasing statement [HikariProxyPreparedStatement@786579903 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-27 00:00:44 TRACE Closing result set [null]
+2024-01-27 00:00:44 TRACE Closing prepared statement [HikariProxyPreparedStatement@786579903 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-27 00:00:44 TRACE Releasing JDBC resources
+2024-01-27 00:00:44 TRACE Releasing JDBC resources
+2024-01-27 00:00:44 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:08:18 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:09:56 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:17 TRACE Releasing JDBC resources
+2024-01-27 00:10:34 TRACE Registering statement [HikariProxyPreparedStatement@347186304 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name=** NOT SPECIFIED ** and u1_0.active=** NOT SPECIFIED **]
+2024-01-27 00:10:34 TRACE Registering result set [HikariProxyResultSet@1785402485 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@33fd2431]
+2024-01-27 00:10:34 TRACE Releasing result set [HikariProxyResultSet@1785402485 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@33fd2431]
+2024-01-27 00:10:34 TRACE Closing result set [HikariProxyResultSet@1785402485 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@33fd2431]
+2024-01-27 00:10:34 TRACE Releasing statement [HikariProxyPreparedStatement@347186304 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name='test' and u1_0.active=1]
+2024-01-27 00:10:34 TRACE Closing prepared statement [HikariProxyPreparedStatement@347186304 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name='test' and u1_0.active=1]
+2024-01-27 00:10:34 TRACE Registering statement [HikariProxyPreparedStatement@1202051594 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select a1_0.user_id,a1_0.id,a1_0.name from authorities a1_0 where a1_0.user_id=** NOT SPECIFIED **]
+2024-01-27 00:10:34 TRACE Registering result set [HikariProxyResultSet@1179010657 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@7e292a62]
+2024-01-27 00:10:34 TRACE Releasing result set [HikariProxyResultSet@1179010657 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@7e292a62]
+2024-01-27 00:10:34 TRACE Closing result set [HikariProxyResultSet@1179010657 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@7e292a62]
+2024-01-27 00:10:34 TRACE Releasing statement [HikariProxyPreparedStatement@1202051594 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select a1_0.user_id,a1_0.id,a1_0.name from authorities a1_0 where a1_0.user_id=1]
+2024-01-27 00:10:34 TRACE Closing prepared statement [HikariProxyPreparedStatement@1202051594 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select a1_0.user_id,a1_0.id,a1_0.name from authorities a1_0 where a1_0.user_id=1]
+2024-01-27 00:10:34 TRACE Releasing JDBC resources
+2024-01-27 00:10:34 TRACE Releasing JDBC resources
+2024-01-27 00:10:34 TRACE Releasing JDBC resources
+2024-01-27 00:10:35 TRACE Registering statement [HikariProxyPreparedStatement@144718187 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name=** NOT SPECIFIED ** and u1_0.active=** NOT SPECIFIED **]
+2024-01-27 00:10:35 TRACE Registering result set [HikariProxyResultSet@369276339 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@6b6dc5eb]
+2024-01-27 00:10:35 TRACE Releasing result set [HikariProxyResultSet@369276339 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@6b6dc5eb]
+2024-01-27 00:10:35 TRACE Closing result set [HikariProxyResultSet@369276339 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@6b6dc5eb]
+2024-01-27 00:10:35 TRACE Releasing statement [HikariProxyPreparedStatement@144718187 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name='test' and u1_0.active=1]
+2024-01-27 00:10:35 TRACE Closing prepared statement [HikariProxyPreparedStatement@144718187 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name='test' and u1_0.active=1]
+2024-01-27 00:10:35 TRACE Registering statement [HikariProxyPreparedStatement@1806703076 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select a1_0.user_id,a1_0.id,a1_0.name from authorities a1_0 where a1_0.user_id=** NOT SPECIFIED **]
+2024-01-27 00:10:35 TRACE Registering result set [HikariProxyResultSet@1861737444 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@7b9eda96]
+2024-01-27 00:10:35 TRACE Releasing result set [HikariProxyResultSet@1861737444 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@7b9eda96]
+2024-01-27 00:10:35 TRACE Closing result set [HikariProxyResultSet@1861737444 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@7b9eda96]
+2024-01-27 00:10:35 TRACE Releasing statement [HikariProxyPreparedStatement@1806703076 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select a1_0.user_id,a1_0.id,a1_0.name from authorities a1_0 where a1_0.user_id=1]
+2024-01-27 00:10:35 TRACE Closing prepared statement [HikariProxyPreparedStatement@1806703076 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select a1_0.user_id,a1_0.id,a1_0.name from authorities a1_0 where a1_0.user_id=1]
+2024-01-27 00:10:35 TRACE Releasing JDBC resources
+2024-01-27 00:10:35 TRACE Releasing JDBC resources
+2024-01-27 00:10:35 TRACE Releasing JDBC resources
+2024-01-27 00:10:51 TRACE Registering statement [HikariProxyPreparedStatement@1313522336 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-27 00:10:51 TRACE Registering result set [null]
+2024-01-27 00:10:51 TRACE Releasing statement [HikariProxyPreparedStatement@1313522336 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-27 00:10:51 TRACE Closing result set [null]
+2024-01-27 00:10:51 TRACE Closing prepared statement [HikariProxyPreparedStatement@1313522336 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9861266759,'first address name',NULL,NULL)]
+2024-01-27 00:10:51 TRACE Releasing JDBC resources
+2024-01-27 00:10:51 TRACE Releasing JDBC resources
+2024-01-27 00:10:51 TRACE Releasing JDBC resources
+2024-01-27 00:15:45 TRACE Releasing JDBC resources
+2024-01-27 00:15:45 TRACE Releasing JDBC resources
+2024-01-27 00:15:45 TRACE Releasing JDBC resources
+2024-01-27 00:15:45 TRACE Releasing JDBC resources
+2024-01-27 00:15:45 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:15:46 TRACE Releasing JDBC resources
+2024-01-27 00:16:55 TRACE Releasing JDBC resources
+2024-01-27 00:16:55 TRACE Releasing JDBC resources
+2024-01-27 00:16:55 TRACE Releasing JDBC resources
+2024-01-27 00:16:55 TRACE Releasing JDBC resources
+2024-01-27 00:16:55 TRACE Releasing JDBC resources
+2024-01-27 00:16:55 TRACE Releasing JDBC resources
+2024-01-27 00:16:55 TRACE Releasing JDBC resources
+2024-01-27 00:16:55 TRACE Releasing JDBC resources
+2024-01-27 00:16:55 TRACE Releasing JDBC resources
+2024-01-27 00:16:55 TRACE Releasing JDBC resources
+2024-01-27 00:16:55 TRACE Releasing JDBC resources
+2024-01-27 00:16:56 TRACE Releasing JDBC resources
+2024-01-27 00:16:56 TRACE Releasing JDBC resources
+2024-01-27 00:16:56 TRACE Releasing JDBC resources
+2024-01-27 00:16:56 TRACE Releasing JDBC resources
+2024-01-27 00:16:56 TRACE Releasing JDBC resources
+2024-01-27 00:16:56 TRACE Releasing JDBC resources
+2024-01-27 00:16:56 TRACE Releasing JDBC resources
+2024-01-27 00:16:56 TRACE Releasing JDBC resources
+2024-01-27 00:16:56 TRACE Releasing JDBC resources
+2024-01-27 00:16:56 TRACE Releasing JDBC resources
+2024-01-27 00:16:56 TRACE Releasing JDBC resources
+2024-01-27 00:16:56 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:04 TRACE Releasing JDBC resources
+2024-01-27 10:57:05 TRACE Releasing JDBC resources
+2024-01-27 10:57:05 TRACE Releasing JDBC resources
+2024-01-27 10:57:05 TRACE Releasing JDBC resources
+2024-01-27 10:57:05 TRACE Releasing JDBC resources
+2024-01-27 10:57:05 TRACE Releasing JDBC resources
+2024-01-27 10:57:05 TRACE Releasing JDBC resources
+2024-01-27 10:57:05 TRACE Releasing JDBC resources
+2024-01-27 10:57:05 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:24 TRACE Releasing JDBC resources
+2024-01-27 10:57:25 TRACE Releasing JDBC resources
+2024-01-27 10:57:25 TRACE Releasing JDBC resources
+2024-01-27 10:57:57 TRACE Registering statement [HikariProxyPreparedStatement@2079322683 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name=** NOT SPECIFIED ** and u1_0.active=** NOT SPECIFIED **]
+2024-01-27 10:57:57 TRACE Registering result set [HikariProxyResultSet@844752478 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@11106315]
+2024-01-27 10:57:57 TRACE Releasing result set [HikariProxyResultSet@844752478 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@11106315]
+2024-01-27 10:57:57 TRACE Closing result set [HikariProxyResultSet@844752478 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@11106315]
+2024-01-27 10:57:57 TRACE Releasing statement [HikariProxyPreparedStatement@2079322683 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name='sdf16d1' and u1_0.active=1]
+2024-01-27 10:57:57 TRACE Closing prepared statement [HikariProxyPreparedStatement@2079322683 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name='sdf16d1' and u1_0.active=1]
+2024-01-27 10:57:57 TRACE Releasing JDBC resources
+2024-01-27 10:57:57 TRACE Registering statement [HikariProxyPreparedStatement@1004651356 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.email=** NOT SPECIFIED **]
+2024-01-27 10:57:57 TRACE Registering result set [HikariProxyResultSet@995899634 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@4eab7f81]
+2024-01-27 10:57:57 TRACE Releasing result set [HikariProxyResultSet@995899634 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@4eab7f81]
+2024-01-27 10:57:57 TRACE Closing result set [HikariProxyResultSet@995899634 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@4eab7f81]
+2024-01-27 10:57:57 TRACE Releasing statement [HikariProxyPreparedStatement@1004651356 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.email='we12sdf23222@df1jom']
+2024-01-27 10:57:57 TRACE Closing prepared statement [HikariProxyPreparedStatement@1004651356 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.email='we12sdf23222@df1jom']
+2024-01-27 10:57:57 TRACE Releasing JDBC resources
+2024-01-27 10:57:57 TRACE Registering statement [HikariProxyPreparedStatement@956556358 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into users (active,created_at,email,password,updated_at,user_name,user_id) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-27 10:57:57 TRACE Registering result set [null]
+2024-01-27 10:57:57 TRACE Releasing statement [HikariProxyPreparedStatement@956556358 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into users (active,created_at,email,password,updated_at,user_name,user_id) values (1,'2024-01-27 10:57:57.474817','we12sdf23222@df1jom','$2a$10$WUOBVlY8SwMbLDwI8Nu85.yu58XFPN8zdSo.h1EBDYE63hC/HRuJO','2024-01-27 10:57:57.474817','sdf16d1',402)]
+2024-01-27 10:57:57 TRACE Closing result set [null]
+2024-01-27 10:57:57 TRACE Closing prepared statement [HikariProxyPreparedStatement@956556358 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into users (active,created_at,email,password,updated_at,user_name,user_id) values (1,'2024-01-27 10:57:57.474817','we12sdf23222@df1jom','$2a$10$WUOBVlY8SwMbLDwI8Nu85.yu58XFPN8zdSo.h1EBDYE63hC/HRuJO','2024-01-27 10:57:57.474817','sdf16d1',402)]
+2024-01-27 10:57:57 TRACE Registering statement [HikariProxyPreparedStatement@130775247 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state,user_id) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-27 10:57:57 TRACE Registering result set [null]
+2024-01-27 10:57:57 TRACE Releasing statement [HikariProxyPreparedStatement@130775247 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state,user_id) values ('Work',NULL,NULL,NULL,9,'first address name',823823,NULL,0)]
+2024-01-27 10:57:57 TRACE Closing result set [null]
+2024-01-27 10:57:57 TRACE Closing prepared statement [HikariProxyPreparedStatement@130775247 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state,user_id) values ('Work',NULL,NULL,NULL,9,'first address name',823823,NULL,0)]
+2024-01-27 10:57:57 TRACE Releasing JDBC resources
+2024-01-27 10:57:57 TRACE Releasing JDBC resources
+2024-01-27 10:57:57 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:10:19 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:12:14 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:14:18 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:14 TRACE Releasing JDBC resources
+2024-01-27 11:15:15 TRACE Releasing JDBC resources
+2024-01-27 11:15:15 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:15:17 TRACE Releasing JDBC resources
+2024-01-27 11:16:01 TRACE Registering statement [HikariProxyPreparedStatement@1386625633 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name=** NOT SPECIFIED ** and u1_0.active=** NOT SPECIFIED **]
+2024-01-27 11:16:01 TRACE Registering result set [HikariProxyResultSet@1490870034 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@7556d372]
+2024-01-27 11:16:01 TRACE Releasing result set [HikariProxyResultSet@1490870034 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@7556d372]
+2024-01-27 11:16:01 TRACE Closing result set [HikariProxyResultSet@1490870034 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@7556d372]
+2024-01-27 11:16:01 TRACE Releasing statement [HikariProxyPreparedStatement@1386625633 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name='sdf16d1' and u1_0.active=1]
+2024-01-27 11:16:01 TRACE Closing prepared statement [HikariProxyPreparedStatement@1386625633 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name='sdf16d1' and u1_0.active=1]
+2024-01-27 11:16:01 TRACE Releasing JDBC resources
+2024-01-27 11:16:01 TRACE Registering statement [HikariProxyPreparedStatement@1510220435 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.email=** NOT SPECIFIED **]
+2024-01-27 11:16:01 TRACE Registering result set [HikariProxyResultSet@821431053 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@227b0b31]
+2024-01-27 11:16:01 TRACE Releasing result set [HikariProxyResultSet@821431053 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@227b0b31]
+2024-01-27 11:16:01 TRACE Closing result set [HikariProxyResultSet@821431053 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@227b0b31]
+2024-01-27 11:16:01 TRACE Releasing statement [HikariProxyPreparedStatement@1510220435 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.email='we12sdf23222@df1jom']
+2024-01-27 11:16:01 TRACE Closing prepared statement [HikariProxyPreparedStatement@1510220435 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.email='we12sdf23222@df1jom']
+2024-01-27 11:16:01 TRACE Releasing JDBC resources
+2024-01-27 11:16:01 TRACE Registering statement [HikariProxyPreparedStatement@2047304524 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into users (active,created_at,email,password,updated_at,user_name,user_id) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-27 11:16:01 TRACE Registering result set [null]
+2024-01-27 11:16:01 TRACE Releasing statement [HikariProxyPreparedStatement@2047304524 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into users (active,created_at,email,password,updated_at,user_name,user_id) values (1,'2024-01-27 11:16:01.512952','we12sdf23222@df1jom','$2a$10$LVve3SarvgqHrDuZzTMl/ugmwNFsGZaIwdn0POftgVYYxQEq1JTZC','2024-01-27 11:16:01.512952','sdf16d1',452)]
+2024-01-27 11:16:01 TRACE Closing result set [null]
+2024-01-27 11:16:01 TRACE Closing prepared statement [HikariProxyPreparedStatement@2047304524 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into users (active,created_at,email,password,updated_at,user_name,user_id) values (1,'2024-01-27 11:16:01.512952','we12sdf23222@df1jom','$2a$10$LVve3SarvgqHrDuZzTMl/ugmwNFsGZaIwdn0POftgVYYxQEq1JTZC','2024-01-27 11:16:01.512952','sdf16d1',452)]
+2024-01-27 11:16:01 TRACE Registering statement [HikariProxyPreparedStatement@2084329524 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state,user_id) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-27 11:16:01 TRACE Registering result set [null]
+2024-01-27 11:16:01 TRACE Releasing statement [HikariProxyPreparedStatement@2084329524 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state,user_id) values ('Work',NULL,NULL,NULL,9,'first address name',823823,NULL,0)]
+2024-01-27 11:16:01 TRACE Closing result set [null]
+2024-01-27 11:16:01 TRACE Closing prepared statement [HikariProxyPreparedStatement@2084329524 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state,user_id) values ('Work',NULL,NULL,NULL,9,'first address name',823823,NULL,0)]
+2024-01-27 11:16:01 TRACE Releasing JDBC resources
+2024-01-27 11:16:01 TRACE Releasing JDBC resources
+2024-01-27 11:16:01 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:10 TRACE Releasing JDBC resources
+2024-01-27 11:19:11 TRACE Releasing JDBC resources
+2024-01-27 11:19:11 TRACE Releasing JDBC resources
+2024-01-27 11:19:11 TRACE Releasing JDBC resources
+2024-01-27 11:19:11 TRACE Releasing JDBC resources
+2024-01-27 11:19:11 TRACE Releasing JDBC resources
+2024-01-27 11:19:11 TRACE Releasing JDBC resources
+2024-01-27 11:19:23 TRACE Releasing JDBC resources
+2024-01-27 11:19:23 TRACE Releasing JDBC resources
+2024-01-27 11:19:23 TRACE Releasing JDBC resources
+2024-01-27 11:19:23 TRACE Releasing JDBC resources
+2024-01-27 11:19:23 TRACE Releasing JDBC resources
+2024-01-27 11:19:23 TRACE Releasing JDBC resources
+2024-01-27 11:19:23 TRACE Releasing JDBC resources
+2024-01-27 11:19:23 TRACE Releasing JDBC resources
+2024-01-27 11:19:23 TRACE Releasing JDBC resources
+2024-01-27 11:19:23 TRACE Releasing JDBC resources
+2024-01-27 11:19:23 TRACE Releasing JDBC resources
+2024-01-27 11:19:23 TRACE Releasing JDBC resources
+2024-01-27 11:19:23 TRACE Releasing JDBC resources
+2024-01-27 11:19:24 TRACE Releasing JDBC resources
+2024-01-27 11:19:24 TRACE Releasing JDBC resources
+2024-01-27 11:19:24 TRACE Releasing JDBC resources
+2024-01-27 11:19:24 TRACE Releasing JDBC resources
+2024-01-27 11:19:24 TRACE Releasing JDBC resources
+2024-01-27 11:19:24 TRACE Releasing JDBC resources
+2024-01-27 11:19:24 TRACE Releasing JDBC resources
+2024-01-27 11:19:24 TRACE Releasing JDBC resources
+2024-01-27 11:19:24 TRACE Releasing JDBC resources
+2024-01-27 11:19:24 TRACE Releasing JDBC resources
+2024-01-27 11:19:43 TRACE Registering statement [HikariProxyPreparedStatement@1845917122 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name=** NOT SPECIFIED ** and u1_0.active=** NOT SPECIFIED **]
+2024-01-27 11:19:43 TRACE Registering result set [HikariProxyResultSet@699463281 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@e7e058d]
+2024-01-27 11:19:43 TRACE Releasing result set [HikariProxyResultSet@699463281 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@e7e058d]
+2024-01-27 11:19:43 TRACE Closing result set [HikariProxyResultSet@699463281 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@e7e058d]
+2024-01-27 11:19:43 TRACE Releasing statement [HikariProxyPreparedStatement@1845917122 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name='sdf16d1' and u1_0.active=1]
+2024-01-27 11:19:43 TRACE Closing prepared statement [HikariProxyPreparedStatement@1845917122 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.user_name='sdf16d1' and u1_0.active=1]
+2024-01-27 11:19:43 TRACE Releasing JDBC resources
+2024-01-27 11:19:43 TRACE Registering statement [HikariProxyPreparedStatement@55820629 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.email=** NOT SPECIFIED **]
+2024-01-27 11:19:43 TRACE Registering result set [HikariProxyResultSet@1423738965 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@614fadd5]
+2024-01-27 11:19:43 TRACE Releasing result set [HikariProxyResultSet@1423738965 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@614fadd5]
+2024-01-27 11:19:43 TRACE Closing result set [HikariProxyResultSet@1423738965 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@614fadd5]
+2024-01-27 11:19:43 TRACE Releasing statement [HikariProxyPreparedStatement@55820629 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.email='we12sdf23222@df1jom']
+2024-01-27 11:19:43 TRACE Closing prepared statement [HikariProxyPreparedStatement@55820629 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: select u1_0.user_id,u1_0.active,u1_0.created_at,u1_0.email,u1_0.password,u1_0.updated_at,u1_0.user_name from users u1_0 where u1_0.email='we12sdf23222@df1jom']
+2024-01-27 11:19:43 TRACE Releasing JDBC resources
+2024-01-27 11:19:43 TRACE Registering statement [HikariProxyPreparedStatement@1103260260 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into users (active,created_at,email,password,updated_at,user_name,user_id) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-27 11:19:43 TRACE Registering result set [null]
+2024-01-27 11:19:43 TRACE Releasing statement [HikariProxyPreparedStatement@1103260260 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into users (active,created_at,email,password,updated_at,user_name,user_id) values (1,'2024-01-27 11:19:43.467736','we12sdf23222@df1jom','$2a$10$W2V9.Q6si/OXf0UAAfOF8.zH6ryJetyLqvjmiDYXe/3EfjfmClAYO','2024-01-27 11:19:43.467736','sdf16d1',502)]
+2024-01-27 11:19:43 TRACE Closing result set [null]
+2024-01-27 11:19:43 TRACE Closing prepared statement [HikariProxyPreparedStatement@1103260260 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into users (active,created_at,email,password,updated_at,user_name,user_id) values (1,'2024-01-27 11:19:43.467736','we12sdf23222@df1jom','$2a$10$W2V9.Q6si/OXf0UAAfOF8.zH6ryJetyLqvjmiDYXe/3EfjfmClAYO','2024-01-27 11:19:43.467736','sdf16d1',502)]
+2024-01-27 11:19:43 TRACE Registering statement [HikariProxyPreparedStatement@1450958217 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-27 11:19:43 TRACE Registering result set [null]
+2024-01-27 11:19:43 TRACE Releasing result set [HikariProxyResultSet@1764962339 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@49521fe4]
+2024-01-27 11:19:43 TRACE Closing result set [HikariProxyResultSet@1764962339 wrapping com.mysql.cj.jdbc.result.ResultSetImpl@49521fe4]
+2024-01-27 11:19:43 TRACE Releasing statement [HikariProxyPreparedStatement@1450958217 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9,'first address name',823823,NULL)]
+2024-01-27 11:19:43 TRACE Closing result set [null]
+2024-01-27 11:19:43 TRACE Closing prepared statement [HikariProxyPreparedStatement@1450958217 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values ('Work',NULL,NULL,NULL,9,'first address name',823823,NULL)]
+2024-01-27 11:19:43 TRACE Releasing statement [HikariProxyPreparedStatement@1450958217 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-27 11:19:43 DEBUG HHH000387: ResultSet's statement was not registered
+2024-01-27 11:19:43 TRACE Closing prepared statement [HikariProxyPreparedStatement@1450958217 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: insert into address (address_type,city,landmark,locality,mobile_number,name,pin_code,state) values (** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **,** NOT SPECIFIED **)]
+2024-01-27 11:19:43 DEBUG Exception clearing maxRows/queryTimeout [No operations allowed after statement closed.]
+2024-01-27 11:19:43 TRACE Registering statement [HikariProxyPreparedStatement@612801503 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: update address set user_id=** NOT SPECIFIED ** where id=** NOT SPECIFIED **]
+2024-01-27 11:19:43 TRACE Registering result set [null]
+2024-01-27 11:19:43 TRACE Releasing statement [HikariProxyPreparedStatement@612801503 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: update address set user_id=502 where id=8]
+2024-01-27 11:19:43 TRACE Closing result set [null]
+2024-01-27 11:19:43 TRACE Closing prepared statement [HikariProxyPreparedStatement@612801503 wrapping com.mysql.cj.jdbc.ClientPreparedStatement: update address set user_id=502 where id=8]
+2024-01-27 11:19:43 TRACE Releasing JDBC resources
+2024-01-27 11:19:43 TRACE Releasing JDBC resources
+2024-01-27 11:19:43 TRACE Releasing JDBC resources

@@ -9,7 +9,7 @@ export class ErrorHandlerService {
   constructor() {}
 
   handleError(error: HttpErrorResponse): Observable<any> {
-    console.log('error ' + JSON.stringify(error));
+    console.log('error occured' + JSON.stringify(error));
     let errorMessage: string;
     if (error.status == 401) {
       errorMessage = error.error;

@@ -10,7 +10,9 @@
         </div>
         <div class="mb-3">
             <label class="form-label" for="email"> Email</label>
-            <input class="form-control" formControlName="email" type="password" name="email" id="email" />
+            <input class="form-control" formControlName="email" type="email" name="email" id="email" />
+            <div *ngIf="signUpForm.get('email')?.dirty && !signUpForm.get('email')?.valid" class="text text-danger">
+                Please enter valid email</div>
         </div>
         <button [disabled]="!signUpForm.valid" type="submit" class="btn btn-primary">
             Sing Up

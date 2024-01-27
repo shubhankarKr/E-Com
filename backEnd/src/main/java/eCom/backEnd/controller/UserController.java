@@ -22,12 +22,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import eCom.backEnd.dao.UserDao;
+import eCom.backEnd.dao.repository.AddressRepository;
 import eCom.backEnd.dao.repository.AuthoriryRepository;
 import eCom.backEnd.dao.repository.UserRepository;
+import eCom.backEnd.entity.Address;
 import eCom.backEnd.entity.Authority;
 import eCom.backEnd.entity.Users;
 import eCom.backEnd.message.SuccessResponse;
 import eCom.backEnd.service.UserService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/ecom/user")
@@ -50,9 +53,12 @@ public class UserController {
 	
 	@Autowired
 	Environment environment;
+	
+	@Autowired
+	AddressRepository addressRepository;
 
 	@PostMapping("/register")
-	public Users registerUser(@RequestBody Users user) throws Exception {
+	public Users registerUser(@Valid @RequestBody Users user) throws Exception {
 		List<Users> usersLists = userDao.findActiveUser(user.getUserName());
 		if (usersLists.size() > 0) {
 			throw new Exception(user.getUserName()+" " +environment.getProperty("IS_ALREADY_REGISTERED"));
@@ -65,21 +71,10 @@ public class UserController {
 		}
 		user.setPassword(encoder.encode(user.getPassword()));
 		user.setActive(1);
-		Users savedUser = null;
-		savedUser = userRepository.save(user);
-		List<Authority> authorityList = user.getAuthorities();
-		if (user.getAuthorities() != null && !authorityList.isEmpty()) {
-			for (Authority authority : authorityList) {
-				authority.setUser(savedUser);
-			}
-		} else {
-			authorityList = new ArrayList<>();
-			Authority a = new Authority();
-			a.setName("ROLE_USER");
-			a.setUser(savedUser);
-			authorityList.add(a);
+		if(user.getAuthorityList() == null || user.getAuthorityList().isEmpty()) {
+			user.setAuthorityList(getDefaultAuthority());
 		}
-		authoriryRepository.saveAll(authorityList);
+		Users savedUser = userRepository.save(user);
 		return savedUser;
 	}
 
@@ -112,5 +107,13 @@ public class UserController {
 	@GetMapping("/allAuthorities")
 	List<Authority> findAllAuthorities() {
 		return authoriryRepository.findAll();
+	}
+	
+	private List<Authority> getDefaultAuthority(){
+		List<Authority> authorityList=new ArrayList<>();
+		Authority a = new Authority();
+		a.setName("ROLE_USER");
+		authorityList.add(a);
+		return authorityList;
 	}
 }

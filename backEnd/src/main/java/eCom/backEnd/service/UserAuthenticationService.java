@@ -33,7 +33,7 @@ public class UserAuthenticationService implements UserDetailsService {
 			if (users.size() == 0) {
 				throw new UsernameNotFoundException(username+" is not registered");
 			} else {
-				result = new User(users.get(0).getUserName(), users.get(0).getPassword(), getGrantedAuthorities(users.get(0).getAuthorities()));
+				result = new User(users.get(0).getUserName(), users.get(0).getPassword(), getGrantedAuthorities(users.get(0).getAuthorityList()));
 			}
 		} catch (UsernameNotFoundException e) {
 //			e.printStackTrace();

@@ -9,17 +9,21 @@ import { UserService } from 'src/app/service/user/user.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  logOut() {
-    this.userService.logoutUser();
-  }
   showLogin!: boolean;
+  currentUser!: string | null;
+  constructor(private userService: UserService) {}
+
   ngOnInit(): void {
     this.userService.getLoginFlag().subscribe({
       next: (res) => {
-        // console.log(' home component subscribe ');
+        console.log(' home component subscribe ' + res);
         this.showLogin = res;
+        this.currentUser = this.userService.getCurrentUser();
       },
     });
   }
-  constructor(private userService: UserService) {}
+
+  logOut() {
+    this.userService.logoutUser();
+  }
 }

@@ -85,8 +85,8 @@ public class ProductsDaoImpl implements ProductsDao{
 
 	@Override
 	public ProductsDTO findProducts(int productId) {
-		Products entity= entityManager.find(Products.class, productId);
-		return entity.getProductsDTO(entity);
+		Products entity = entityManager.find(Products.class, productId);
+		return entity != null ? entity.getProductsDTO(entity) : null;
 	}
 
 	@SuppressWarnings("unchecked")

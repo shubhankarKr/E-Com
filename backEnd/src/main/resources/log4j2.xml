@@ -40,7 +40,11 @@
 <!--            <AppenderRef ref="Console" />-->
 <!--            <AppenderRef ref="rollingFile" />-->
 <!--        </Logger>-->
-<!--        <Logger name="eCom.backEnd.filter.interceptor" additivity="false" level="debug">-->
+<!--        <Logger name="org.hibernate.engine.jdbc" additivity="false" level="trace">-->
+<!--            <AppenderRef ref="Console" />-->
+<!--            <AppenderRef ref="rollingFile" />-->
+<!--        </Logger>-->
+<!--        <Logger name="org.hibernate.resource.jdbc.internal.ResourceRegistryStandardImpl" additivity="false" level="trace">-->
 <!--            <AppenderRef ref="Console" />-->
 <!--            <AppenderRef ref="rollingFile" />-->
 <!--        </Logger>-->

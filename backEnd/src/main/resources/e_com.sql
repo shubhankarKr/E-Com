@@ -104,3 +104,23 @@ update authorities set name='ROLE_USER' where user_id=852;
 
 desc products_category_mapping;
 
+
+ drop tables address;
+desc address;
+
+select * from users;
+
+
+create table address(
+	id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(100) NOT NULL ,
+    pin_code int NOT NULL,
+    mobile_number bigint NOT NULL,
+    locality varchar(50),
+    city varchar(50),
+    state varchar(50),
+    landmark varchar(200),
+    address_type enum ('Home','Work') ,
+    user_id int
+);
+
