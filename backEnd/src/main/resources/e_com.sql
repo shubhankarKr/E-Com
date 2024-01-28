@@ -1,9 +1,9 @@
- use `u730611153_ecommerce`;
+-- use `u730611153_ecommerce`;
  -- drop table users;
 
  -- drop database e_com;
 -- CREATE DATABASE  IF NOT EXISTS  `e_com`;
--- use `e_com`;
+ use `e_com`;
 
 
 -- use `u730611153_ecommerce`;
@@ -139,5 +139,20 @@ create table address(
     active smallint NOT NULL DEFAULT 1
 );
 
+  -- drop table api_details;
+
+create table api_details(
+   id int PRIMARY KEY AUTO_INCREMENT,
+   method varchar(10) NOT NULL,
+   api varchar(400) NOT NULL,
+   api_path varchar (255) NOT NULL,
+   description varchar(500) NOT NULL,
+   host varchar(100) NOT NULL
+);
+
+
+select * from api_details;
+
+delete from api_details where id=21;
 select * from users;
 

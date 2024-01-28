@@ -1,0 +1,56 @@
+<div class="mx-auto my-2">
+    <button class="btn btn-primary mb-3" (click)="buttonClicked()">
+        {{buttonName}}
+    </button>
+    <div *ngIf="loadingFlag">
+        <app-loading></app-loading>
+    </div>
+    <div *ngIf="showMode == 'dashboard' && !loadingFlag">
+        <table class="table table-striped">
+            <thead>
+                <tr class="table-secondary">
+                    <th>Method</th>
+                    <th>API</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let i of apiListData">
+                <tr [ngClass]="findTableRowColor(i.method)">
+                    <td>{{i.method}}</td>
+                    <td>{{i.api}}</td>
+                    <td>{{i.description}}</td>
+                    <td class="d-flex">
+                        <button type="button" class="btn btn-danger" (click)="delete(i.id)">Delete</button>
+                        <button style="margin-left: 1rem;" type="button" class="btn btn-warning"
+                            (click)="update(i)">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="showMode != 'dashboard'  && !loadingFlag">
+        <form [formGroup]="addAPIForm" (ngSubmit)="formSubmit()">
+            <div class="mb-3">
+                <!-- <label for="method">Method</label> -->
+                <div class="d-flex gap-3">
+                    <div *ngFor="let a of methodArray">
+                        <input formControlName="method" [value]="a" type="radio" name="method" id="method" />{{ a }}
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="apiPath" class="form-label"> API Path</label>
+                <input type="text" id="apiPath" class="form-control"
+                    placeholder="Please enter api path (without hostname)" formControlName="apiPath" />
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label"> Description</label>
+                <textarea name="description" id="description" cols="100" formControlName="description" rows="4"
+                    class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" [hidden]="!(showMode=='add')">Save</button>
+            <button type="submit" class="btn btn-primary" [hidden]="!((showMode=='update'))">Update</button>
+        </form>
+    </div>
+</div>

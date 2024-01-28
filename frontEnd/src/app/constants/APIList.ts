@@ -8,9 +8,16 @@ export class APIList {
   PRODUCT_BASE_URL = this.HOST_URL + '/products';
   METADATA_BASE_URL = this.HOST_URL + '/metadata';
 
-  LOGIN_API = this.USER_BASE_URL + '/authenticate';
-  REGISTER_API = this.USER_BASE_URL + '/register';
+  LOGIN_AUTHENTICATE = this.USER_BASE_URL + '/authenticate';
+  LOGIN_REGISTER = this.USER_BASE_URL + '/register';
 
-  GET_ALL_PRODUCTS = this.PRODUCT_BASE_URL + '/getAllProducts';
-  GET_CATEGORY = this.METADATA_BASE_URL + '/getAllCategory';
+  PRODUCTS_FIND_ALL = this.PRODUCT_BASE_URL + '/findAll';
+
+  CATEGORY_FIND_ALL = this.METADATA_BASE_URL + '/findAll';
+
+  API_DETAILS_SAVE = this.METADATA_BASE_URL + '/apiDetails/create';
+  API_DETAILS_FIND_AL = this.METADATA_BASE_URL + '/apiDetails/findAll';
+  API_DETAILS_UPDATE = this.METADATA_BASE_URL + '/apiDetails/update';
+  API_DETAILS_DELETE_BY_ID =
+    this.METADATA_BASE_URL + '/apiDetails/delete/id/{id}';
 }

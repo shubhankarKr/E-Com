@@ -17,6 +17,12 @@ import { APIList } from './constants/APIList';
 import { RequestInterceptor } from './interceptor/requestInterceptor/request.interceptor';
 import { UserService } from './service/user/user.service';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
+import { ApiDetailsComponent } from './component/api-details/api-details.component';
+import { OrderComponent } from './component/order/order.component';
+import { CartComponent } from './component/cart/cart.component';
+import { UserDashboardComponent } from './component/user-dashboard/user-dashboard.component';
+import { ProductComponent } from './component/product/product.component';
+import { LoadingComponent } from './component/loading/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +32,12 @@ import { SignUpComponent } from './component/sign-up/sign-up.component';
     HeaderComponent,
     FooterComponent,
     SignUpComponent,
+    ApiDetailsComponent,
+    OrderComponent,
+    CartComponent,
+    UserDashboardComponent,
+    ProductComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

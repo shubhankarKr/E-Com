@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getLoginFlag().subscribe({
       next: (res) => {
-        console.log(' home component subscribe ' + res);
+        // console.log(' home component subscribe ' + res);
         this.showLogin = res;
         this.currentUser = this.userService.getCurrentUser();
       },

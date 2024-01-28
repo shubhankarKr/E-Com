@@ -26,9 +26,10 @@
           </button>
           <ul class="dropdown-menu" style="left: unset;
           right: 0;" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Dashbpard</a></li>
-            <li><a class="dropdown-item" href="#">My Order</a></li>
-            <li><a class="dropdown-item" href="#">My Cart</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/api']">API Dashboard</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/user/dashboard']">Dashbpard</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/user/order']">My Order</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/user/cart']">My Cart</a></li>
             <li class="text-danger"><a class="dropdown-item text-danger" (click)="logOut()"
                 [routerLink]="['homepage']">Logout</a></li>
           </ul>

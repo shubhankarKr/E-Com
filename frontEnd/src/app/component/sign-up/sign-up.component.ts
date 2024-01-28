@@ -36,10 +36,10 @@ export class SignUpComponent implements OnInit {
     };
     this.userService.signUp(UserData).subscribe({
       next: (res) => {
-        console.log(' signUp res ' + res);
+        // console.log(' signUp res ' + res);
         this.userService.login(UserData).subscribe({
           next: (res) => {
-            console.log(' login response ' + res);
+            // console.log(' login response ' + res);
             this.userService.loginUser(
               UserData.userName,
               res.headers.get('token')

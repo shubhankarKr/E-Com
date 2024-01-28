@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { APIList } from 'src/app/constants/APIList';
-import { ErrorHandlerService } from '../errorHandler/error-handler.service';
+import { HttpHandlerService } from '../httpHandler/http-handler.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,12 +11,12 @@ export class ProductService {
   constructor(
     private http: HttpClient,
     private apiList: APIList,
-    private errorService: ErrorHandlerService
+    private httpHandler: HttpHandlerService
   ) {}
 
   getProductsList(): Observable<any> {
-    return this.http
-      .get(this.apiList.GET_ALL_PRODUCTS)
-      .pipe(catchError(this.errorService.handleError));
+    return this.httpHandler
+      .getMethod(this.apiList.PRODUCTS_FIND_ALL)
+      .pipe(catchError(this.httpHandler.handleError));
   }
 }

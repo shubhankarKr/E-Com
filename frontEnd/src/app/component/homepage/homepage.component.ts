@@ -17,7 +17,7 @@ export class HomepageComponent implements OnInit {
   getAllProducts() {
     this.productService.getProductsList().subscribe({
       next: (res) => {
-        console.log(' success ' + JSON.stringify(res));
+        // console.log(' success ' + JSON.stringify(res));
         this.productList = res;
       },
       error: (err) => console.log(JSON.stringify(err)),

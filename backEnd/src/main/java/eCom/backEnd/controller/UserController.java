@@ -89,7 +89,7 @@ public class UserController {
 		return savedUser;
 	}
 
-	@DeleteMapping("delete/userName/{userName}")
+	@DeleteMapping("/delete/userName/{userName}")
 	public ResponseEntity<SuccessResponse> deleteUser(@PathVariable String userName) throws Exception {
 		Optional<Users> optionalUser=userRepository.findActiveUserByUserName(userName);
 		if(optionalUser.isPresent()) {
@@ -99,7 +99,7 @@ public class UserController {
 		throw new Exception(userName +" "+environment.getProperty("DOES_NOT_EXIST"));
 	}
 	
-	@DeleteMapping("delete/id/{userName}")
+	@DeleteMapping("/delete/id/{id}")
 	public ResponseEntity<SuccessResponse> deleteUser(@PathVariable int id) throws Exception {
 		Optional<Users> optionalUser=userRepository.findActiveUserById(id);
 		if(optionalUser.isPresent()) {

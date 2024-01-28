@@ -57,7 +57,7 @@ public class JWTTokenValidator extends OncePerRequestFilter{
 		ArrayList<String> arrayList = new ArrayList<>();
 		arrayList.add("/ecom/user/authenticate");
 		arrayList.add("/ecom/metadata/**");
-		arrayList.add("/ecom/products/find/all");
+		arrayList.add("/ecom/products/findAll");
 		arrayList.add("/ecom/user/register");
 		return arrayList;
 	}

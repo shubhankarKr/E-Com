@@ -6,7 +6,7 @@ import {
 import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, Observer, catchError } from 'rxjs';
 import { APIList } from 'src/app/constants/APIList';
-import { ErrorHandlerService } from '../errorHandler/error-handler.service';
+import { HttpHandlerService } from '../httpHandler/http-handler.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +16,7 @@ export class UserService {
   constructor(
     private http: HttpClient,
     private apiList: APIList,
-    private errorHandler: ErrorHandlerService
+    private httpHandler: HttpHandlerService
   ) {
     if (sessionStorage.getItem('token')) {
       this.loginFlag.next(true);
@@ -32,18 +32,18 @@ export class UserService {
       'Basic ' + window.btoa(user.userName + ':' + user.password)
     );
     return this.http
-      .get(this.apiList.LOGIN_API, {
+      .get(this.apiList.LOGIN_AUTHENTICATE, {
         headers: httpHeaders,
         withCredentials: true,
         observe: 'response',
       })
-      .pipe(catchError(this.errorHandler.handleError));
+      .pipe(catchError(this.httpHandler.handleError));
   }
 
   signUp(data: any) {
     return this.http
-      .post(this.apiList.REGISTER_API, data)
-      .pipe(catchError(this.errorHandler.handleError));
+      .post(this.apiList.LOGIN_REGISTER, data)
+      .pipe(catchError(this.httpHandler.handleError));
   }
 
   loginUser(userName: string, token: string) {

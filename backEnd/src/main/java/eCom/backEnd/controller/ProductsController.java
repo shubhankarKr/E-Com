@@ -32,7 +32,7 @@ public class ProductsController {
 	@Autowired
 	UserAuthenticationService userAuthenticationService;
 
-	@GetMapping("find/id/{id}")
+	@GetMapping("/find/id/{id}")
 	public Products findProductsById(@PathVariable int id) throws Exception {
 		Products entity = productRepository.findByIdAndActive(id,1);
 		if (entity!=null) {
@@ -41,13 +41,13 @@ public class ProductsController {
 		throw new Exception("product not found with the given id");
 	}
 
-	@GetMapping("find/all")
-	public List<Products> getAllProducts() throws Exception {
+	@GetMapping("findAll")
+	public List<Products> findAllProducts() throws Exception {
 		return productRepository.findAllByActive(1);
 	}
 	
 	@GetMapping("find/all/Ignored")
-	public List<Products> getAllProductsIgnored() throws Exception {
+	public List<Products> findAllProductsIgnored() throws Exception {
 		return productRepository.findAll();
 	}
 
