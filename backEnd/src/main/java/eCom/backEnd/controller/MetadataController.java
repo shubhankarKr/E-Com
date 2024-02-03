@@ -19,13 +19,12 @@ import eCom.backEnd.entity.Authority;
 import eCom.backEnd.entity.metadata.APIDetails;
 
 @RestController
-@RequestMapping("/ecom/metadata")
+@RequestMapping("/metadata")
 public class MetadataController {
 
-	
 	@Autowired
 	AuthoriryRepository authoriryRepository;
-	
+
 	@Autowired
 	APIDetailsRepository apiDetailsRepository;
 
@@ -36,15 +35,15 @@ public class MetadataController {
 
 	@PostMapping("/apiDetails/create")
 	public APIDetails createAPIDetails(@RequestBody APIDetails apiDetails) {
-		apiDetails.setApi(apiDetails.getHost()+apiDetails.getApiPath());
+		apiDetails.setApi(apiDetails.getHost() + apiDetails.getApiPath());
 		return apiDetailsRepository.save(apiDetails);
 	}
-	
+
 	@GetMapping("/apiDetails/findAll")
 	public List<APIDetails> findAllAPIDetails() {
 		return apiDetailsRepository.findAll();
 	}
-	
+
 	@DeleteMapping("/apiDetails/delete/id/{id}")
 	public boolean deleteAPIDetails(@PathVariable int id) throws Exception {
 		Optional<APIDetails> entity = apiDetailsRepository.findById(id);
@@ -54,14 +53,15 @@ public class MetadataController {
 		apiDetailsRepository.deleteById(id);
 		return true;
 	}
+
 	@PutMapping("/apiDetails/update")
 	public boolean updateAPIDetails(@RequestBody APIDetails apiDetails) throws Exception {
 		Optional<APIDetails> entity = apiDetailsRepository.findById(apiDetails.getId());
 		if (entity.isEmpty()) {
 			throw new Exception("not found with the given id");
 		}
-		APIDetails savedEntity= entity.get();
-		savedEntity.setApi(apiDetails.getHost()+apiDetails.getApiPath());
+		APIDetails savedEntity = entity.get();
+		savedEntity.setApi(apiDetails.getHost() + apiDetails.getApiPath());
 		savedEntity.setDescription(apiDetails.getDescription());
 		savedEntity.setMethod(apiDetails.getMethod());
 		savedEntity.setApiPath(apiDetails.getApiPath());

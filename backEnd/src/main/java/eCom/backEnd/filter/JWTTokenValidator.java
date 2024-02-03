@@ -23,42 +23,39 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @Component
-public class JWTTokenValidator extends OncePerRequestFilter{
-	
+public class JWTTokenValidator extends OncePerRequestFilter {
+
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
 		String jwt = request.getHeader(Constants.JWT_HEADER);
 		if (jwt != null) {
-			SecretKey key= Keys.hmacShaKeyFor(Constants.JWT_KEY.getBytes(StandardCharsets.UTF_8));
-			Claims claims=Jwts.parserBuilder().
-					setSigningKey(key).
-					build().
-					parseClaimsJws(jwt).
-					getBody();
-			String userName=String.valueOf(claims.get("userName"));
-			String authorities=(String) claims.get("authorities");
-			Authentication auth= new UsernamePasswordAuthenticationToken(userName, null, AuthorityUtils.commaSeparatedStringToAuthorityList(authorities));
+			SecretKey key = Keys.hmacShaKeyFor(Constants.JWT_KEY.getBytes(StandardCharsets.UTF_8));
+			Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt).getBody();
+			String userName = String.valueOf(claims.get("userName"));
+			String authorities = (String) claims.get("authorities");
+			Authentication auth = new UsernamePasswordAuthenticationToken(userName, null,
+					AuthorityUtils.commaSeparatedStringToAuthorityList(authorities));
 			SecurityContextHolder.getContext().setAuthentication(auth);
 		}
 		filterChain.doFilter(request, response);
 	}
-	
+
 	@Override
 	protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
 		return getIgnoredAPIsListValidators(request.getServletPath());
 	}
-	
+
 	private boolean getIgnoredAPIsListValidators(String path) {
-		return getAuthenticationIgnoredApis().stream().anyMatch(e->e.contains(path));
+		return getAuthenticationIgnoredApis().stream().anyMatch(e -> e.contains(path));
 	}
-	
+
 	public ArrayList<String> getAuthenticationIgnoredApis() {
 		ArrayList<String> arrayList = new ArrayList<>();
-		arrayList.add("/ecom/user/authenticate");
-		arrayList.add("/ecom/metadata/**");
-		arrayList.add("/ecom/products/findAll");
-		arrayList.add("/ecom/user/register");
+		arrayList.add("/user/authenticate");
+		arrayList.add("/metadata/**");
+		arrayList.add("/products/findAll");
+		arrayList.add("/user/register");
 		return arrayList;
 	}
 

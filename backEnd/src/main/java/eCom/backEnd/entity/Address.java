@@ -1,6 +1,6 @@
 package eCom.backEnd.entity;
 
-
+import eCom.backEnd.entity.base.BaseEntity;
 import eCom.backEnd.enums.AddressType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,7 +15,8 @@ import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "address")
-public class Address {
+public class Address extends BaseEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -28,9 +29,9 @@ public class Address {
 
 	@Column(name = "mobile_number")
 	@NotNull(message = "mobile number can not be null")
-	@Digits(integer = 10,message = "mobileNumber must be of 10 digits", fraction = 0)
-	private Long mobileNumber;
-	
+	@Digits(integer = 10, message = "mobileNumber must be of 10 digits", fraction = 0)
+	private String mobileNumber;
+
 	private String locality;
 	private String city;
 	private String state;
@@ -39,19 +40,6 @@ public class Address {
 	@Column(name = "address_type")
 	@Enumerated(EnumType.STRING)
 	private AddressType addressType;
-	
-	private Short active;
-	
-	public Address() {
-		this.active=1;
-	}
-	public Short getActive() {
-		return active;
-	}
-
-	public void setActive(Short active) {
-		this.active = active;
-	}
 
 	public Integer getId() {
 		return id;
@@ -77,11 +65,11 @@ public class Address {
 		this.pinCode = pinCode;
 	}
 
-	public Long getMobileNumber() {
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(Long mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 

@@ -1,14 +1,10 @@
 package eCom.backEnd.entity;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import eCom.backEnd.entity.base.BaseEntity;
 import eCom.backEnd.enums.Gender;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -28,49 +24,65 @@ import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "users")
-public class Users {
+public class Users extends BaseEntity {
 
 	@Id
 	@Column(name = "user_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
+	@Column(name = "first_name")
+	@NotNull(message = "First Name should not be null")
+	private String firstName;
+
+	@Column(name = "last_name")
+	@NotNull(message = "Last Name should not be null")
+	private String lastName;
+
+	@Enumerated(EnumType.STRING)
+	private Gender gender;
+
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private String password;
 
-	@Column(name = "created_at")
-	@CreationTimestamp
-	private LocalDateTime createdAt;
-
-	@Column(name = "updated_at")
-	@UpdateTimestamp
-	private LocalDateTime updatedAt;
-
 	@Column(name = "user_name")
-	@NotNull(message = "userName should not be null")
 	private String userName;
 
 	@Email(message = "please enter valid email")
+	@NotNull(message = "email should not be null")
 	private String email;
 
-	@JsonIgnore
-	private Short active;
-
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinColumn(name = "user_id")
+	@OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	List<Authority> authorityList;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id")
 	@Valid
+	@JoinColumn(name = "user_id")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	List<Address> addressList;
-	
-	@Enumerated(EnumType.STRING)
-	private Gender gender;
-	
-	public Users() {
-		super();
-		this.active = 1;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public Gender getGender() {
@@ -81,44 +93,12 @@ public class Users {
 		this.gender = gender;
 	}
 
-	public List<Authority> getAuthorityList() {
-		return authorityList;
-	}
-
-	public void setAuthorityList(List<Authority> authorityList) {
-		this.authorityList = authorityList;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public String getPassword() {
 		return password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public LocalDateTime getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(LocalDateTime createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public LocalDateTime getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(LocalDateTime updatedAt) {
-		this.updatedAt = updatedAt;
 	}
 
 	public String getUserName() {
@@ -136,13 +116,13 @@ public class Users {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	public Short getActive() {
-		return active;
+
+	public List<Authority> getAuthorityList() {
+		return authorityList;
 	}
 
-	public void setActive(Short active) {
-		this.active = active;
+	public void setAuthorityList(List<Authority> authorityList) {
+		this.authorityList = authorityList;
 	}
 
 	public List<Address> getAddressList() {
@@ -152,4 +132,5 @@ public class Users {
 	public void setAddressList(List<Address> addressList) {
 		this.addressList = addressList;
 	}
+
 }

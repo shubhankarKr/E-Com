@@ -23,7 +23,6 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import eCom.backEnd.constant.Constants;
-import eCom.backEnd.exception.UserAuthenticationEntryPoint;
 import eCom.backEnd.filter.JWTTokenGenerator;
 import eCom.backEnd.filter.JWTTokenValidator;
 import eCom.backEnd.filter.interceptor.LogInterceptor;
@@ -31,9 +30,6 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @Configuration
 public class SecurityConfig implements WebMvcConfigurer {
-
-	@Autowired
-	UserAuthenticationEntryPoint authenticationEntryPoint;
 
 	@Autowired
 	JWTTokenValidator jwtTokenValidator;
@@ -76,14 +72,13 @@ public class SecurityConfig implements WebMvcConfigurer {
 						return config;
 					}
 				})).csrf((csrf) -> csrf.disable())
-				.addFilterAfter(new JWTTokenGenerator(), BasicAuthenticationFilter.class)
 				.addFilterBefore(new JWTTokenValidator(), BasicAuthenticationFilter.class)
+				.addFilterAfter(new JWTTokenGenerator(), BasicAuthenticationFilter.class)
 				.authorizeHttpRequests((requests) -> requests
 						.requestMatchers(getAuthenticationIgnoredApis()
 								.toArray(new String[getAuthenticationIgnoredApis().size()]))
 						.permitAll().requestMatchers("/**").hasAnyRole("USER").requestMatchers("/**").authenticated())
-				.formLogin(Customizer.withDefaults())
-				.httpBasic(Customizer.withDefaults());
+				.formLogin(Customizer.withDefaults()).httpBasic(Customizer.withDefaults());
 		return http.build();
 	}
 

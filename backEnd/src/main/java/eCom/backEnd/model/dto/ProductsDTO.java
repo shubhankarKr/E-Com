@@ -1,21 +1,14 @@
 package eCom.backEnd.model.dto;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import eCom.backEnd.entity.Category;
-import eCom.backEnd.entity.Products;
+import eCom.backEnd.entity.Color;
 
 public class ProductsDTO {
 	private Integer id;
 
 	private LocalDateTime createdAt;
-
 	private LocalDateTime updatedAt;
 
 	private String description;
@@ -28,18 +21,13 @@ public class ProductsDTO {
 
 	private Integer discount;
 
-	private String imageId;
+	private String seller;
 
-	private Set<CategoryDTO> categoryList = new HashSet<>();
+	private Short active;
 
-	private Integer stock;
+	private List<CategoryDTO> categoryList;
 
-	private String buyer;
-	
-	private List<ColorDTO> colorList;
-	
-	@Autowired
-	ModelMapper modelMapper;
+	private List<Color> colorList;
 
 	public Integer getId() {
 		return id;
@@ -105,43 +93,36 @@ public class ProductsDTO {
 		this.discount = discount;
 	}
 
-	public String getImageId() {
-		return imageId;
+	public String getSeller() {
+		return seller;
 	}
 
-	public void setImageId(String imageId) {
-		this.imageId = imageId;
+	public void setSeller(String seller) {
+		this.seller = seller;
 	}
 
-	public Set<CategoryDTO> getCategoryList() {
-		return categoryList;
+	public Short getActive() {
+		return active;
 	}
 
-	public void setCategoryList(Set<CategoryDTO> categoryList) {
-		this.categoryList = categoryList;
+	public void setActive(Short active) {
+		this.active = active;
 	}
 
-	public Integer getStock() {
-		return stock;
-	}
-
-	public void setStock(Integer stock) {
-		this.stock = stock;
-	}
-
-	public String getBuyer() {
-		return buyer;
-	}
-
-	public void setBuyer(String buyer) {
-		this.buyer = buyer;
-	}
-	
-	public List<ColorDTO> getColorList() {
+	public List<Color> getColorList() {
 		return colorList;
 	}
 
-	public void setColorList(List<ColorDTO> colorList) {
+	public void setColorList(List<Color> colorList) {
 		this.colorList = colorList;
 	}
+
+	public List<CategoryDTO> getCategoryList() {
+		return categoryList;
+	}
+
+	public void setCategoryList(List<CategoryDTO> categoryList) {
+		this.categoryList = categoryList;
+	}
+
 }

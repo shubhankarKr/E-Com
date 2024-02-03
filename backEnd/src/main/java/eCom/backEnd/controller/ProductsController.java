@@ -1,8 +1,11 @@
 package eCom.backEnd.controller;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,70 +23,67 @@ import eCom.backEnd.entity.Products;
 import eCom.backEnd.service.UserAuthenticationService;
 
 @RestController
-@RequestMapping("/ecom/products")
+@RequestMapping("/products")
 public class ProductsController {
 
 	@Autowired
 	ProductRepository productRepository;
-	
+
 	@Autowired
 	CategoryRepository categoryRepository;
-	
+
 	@Autowired
 	UserAuthenticationService userAuthenticationService;
 
+	@Autowired
+	ModelMapper modelMapper;
+
 	@GetMapping("/find/id/{id}")
 	public Products findProductsById(@PathVariable int id) throws Exception {
-		Products entity = productRepository.findByIdAndActive(id,1);
-		if (entity!=null) {
+		Products entity = productRepository.findByIdAndActive(id, 1);
+		if (entity != null) {
 			return entity;
 		}
 		throw new Exception("product not found with the given id");
 	}
 
-	@GetMapping("findAll")
+	@GetMapping("/findAll")
 	public List<Products> findAllProducts() throws Exception {
-		return productRepository.findAllByActive(1);
+		return productRepository.findAllActive();
 	}
-	
-	@GetMapping("find/all/Ignored")
+
+	@GetMapping("/findAll/Ignored")
 	public List<Products> findAllProductsIgnored() throws Exception {
 		return productRepository.findAll();
 	}
 
 	@PostMapping("/create")
 	public Products createProduct(@RequestBody Products product) throws Exception {
-		if(product.getCategoryList()!=null) {
-			ArrayList<Integer> idList=new ArrayList<>();
+		if (product.getCategoryList() != null) {
+			ArrayList<Integer> idList = new ArrayList<>();
 			for (Category category : product.getCategoryList()) {
 				idList.add(category.getId());
 			}
-			List<Category> categories= categoryRepository.findAllById(idList);
-			if(product.getCategoryList().size() != categories.size()) {
-				throw new Exception("there is somethign wrong with Category data hints! please check if ids are missing");
+			List<Category> categories = categoryRepository.findAllById(idList);
+			if (product.getCategoryList().size() != categories.size()) {
+				throw new Exception(
+						"there is somethign wrong with Category data hints! please check if ids are missing");
 			}
-			product.setCategoryList(categories);
+			product.setCategoryList(new HashSet<>(categories));
 		}
-		product.setUpdatedBy(userAuthenticationService.getCurrentUser());
 		return productRepository.save(product);
 	}
-	
+
 	@PostMapping("/createAll")
 	public List<Products> createProductsAll(@RequestBody List<Products> products) throws Exception {
-		List<Products> result=new ArrayList<>();
-		if(result!=null) {
-			for (Products pro : products) {
-				result.add(createProduct(pro));
-			}
-		}
+		List<Products> result = new ArrayList<>();
 		return result;
 	}
 
 	@PutMapping("/update")
 	public Products updateProduct(@RequestBody Products products) throws Exception {
-		Products entity=findProductsById(products.getId());
-		if(entity!=null) {
-			entity.setUpdatedBy(userAuthenticationService.getCurrentUser());
+		Products entity = findProductsById(products.getId());
+		if (entity != null) {
 			entity.setDescription(products.getDescription());
 			entity.setDiscount(products.getDiscount());
 			entity.setName(products.getName());
@@ -91,14 +91,21 @@ public class ProductsController {
 		}
 		return entity;
 	}
-	
+
 	@DeleteMapping("/delete/id/{id}")
 	public Boolean deleteProducts(@PathVariable int id) throws Exception {
-		Products entity=productRepository.findByIdAndActive(id, 1);
-		if(entity!=null) {
+		Products entity = productRepository.findByIdAndActive(id, 1);
+		if (entity != null) {
 			productRepository.deleteProduct(id);
 			return true;
 		}
 		throw new Exception("product does not exist with given id");
+	}
+
+	@GetMapping("/allProductsByCategoryId/{categoryId}")
+	public Set<Products> findAllProductsByICategoryd(@PathVariable int categoryId) {
+		List<Integer> productIdList = productRepository.findProductIdListByCategoryId(categoryId);
+		List<Products> products = productRepository.findAllById(productIdList);
+		return new HashSet<>(products);
 	}
 }

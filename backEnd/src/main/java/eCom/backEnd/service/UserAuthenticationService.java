@@ -21,7 +21,7 @@ import eCom.backEnd.entity.Users;
 
 @Service
 public class UserAuthenticationService implements UserDetailsService {
-	
+
 	@Autowired
 	UserRepository userRepository;
 
@@ -29,7 +29,7 @@ public class UserAuthenticationService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		UserDetails result;
 		try {
-			Optional<Users> user = userRepository.findActiveUserByUserName(username);
+			Optional<Users> user = userRepository.findActiveUserByUserNameOrEmail(username, username);
 			if (user.isEmpty()) {
 				throw new UsernameNotFoundException(username + " is not registered");
 			}
@@ -41,10 +41,10 @@ public class UserAuthenticationService implements UserDetailsService {
 		}
 		return result;
 	}
-	
-	public List<GrantedAuthority> getGrantedAuthorities(List<Authority> authorities){
-		List<GrantedAuthority> authList=new ArrayList<>();
-		for(Authority auth:authorities) {
+
+	public List<GrantedAuthority> getGrantedAuthorities(List<Authority> authorities) {
+		List<GrantedAuthority> authList = new ArrayList<>();
+		for (Authority auth : authorities) {
 			authList.add(new SimpleGrantedAuthority(auth.getName()));
 		}
 		return authList;

@@ -1,5 +1,6 @@
 package eCom.backEnd.entity;
 
+import eCom.backEnd.entity.base.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,18 +10,19 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "authorities")
-public class Authority {
+public class Authority extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	
+
 	@Column(name = "md")
 	private Short md;
-	
+
 	public Authority() {
-		this.md=0;;
+		this.md = 0;
+		;
 	}
 
 	public int getId() {

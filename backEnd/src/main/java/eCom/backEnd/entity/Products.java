@@ -1,14 +1,10 @@
 package eCom.backEnd.entity;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
+import eCom.backEnd.entity.base.BaseEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,28 +20,17 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "products")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Products {
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+public class Products extends BaseEntity {
 
 	@Id
 	@Column(name = "product_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	@Column(name = "created_at")
-	@CreationTimestamp
-	private LocalDateTime createdAt;
-
-	@Column(name = "updated_at")
-	@UpdateTimestamp
-	private LocalDateTime updatedAt;
-
 	private String description;
 
 	private String name;
-
-	@Column(name = "updated_by")
-	private String updatedBy;
 
 	@Column(name = "price")
 	private Integer price;
@@ -54,34 +39,14 @@ public class Products {
 
 	private String seller;
 
-	private Short active;
-
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
 	@JoinTable(name = "products_category_mapping", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
-	private List<Category> categoryList;
+	private Set<Category> categoryList;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "product_id")
-	private List<Color> colorList;
-	
-	public Products() {
-		this.active=1;
-	}
-	public String getSeller() {
-		return seller;
-	}
-
-	public void setSeller(String seller) {
-		this.seller = seller;
-	}
-
-	public Short getActive() {
-		return active;
-	}
-
-	public void setActive(Short active) {
-		this.active = active;
-	}
+	private Set<Color> colorList;
 
 	public Integer getId() {
 		return id;
@@ -89,22 +54,6 @@ public class Products {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public LocalDateTime getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(LocalDateTime createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public LocalDateTime getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(LocalDateTime updatedAt) {
-		this.updatedAt = updatedAt;
 	}
 
 	public String getDescription() {
@@ -123,14 +72,6 @@ public class Products {
 		this.name = name;
 	}
 
-	public String getUpdatedBy() {
-		return updatedBy;
-	}
-
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
 	public Integer getPrice() {
 		return price;
 	}
@@ -146,21 +87,29 @@ public class Products {
 	public void setDiscount(Integer discount) {
 		this.discount = discount;
 	}
-	
-	public List<Color> getColorList() {
-		return colorList;
+
+	public String getSeller() {
+		return seller;
 	}
 
-	public void setColorList(List<Color> colorList) {
-		this.colorList = colorList;
+	public void setSeller(String seller) {
+		this.seller = seller;
 	}
 
-	public List<Category> getCategoryList() {
+	public Set<Category> getCategoryList() {
 		return categoryList;
 	}
 
-	public void setCategoryList(List<Category> categoryList) {
+	public void setCategoryList(Set<Category> categoryList) {
 		this.categoryList = categoryList;
+	}
+
+	public Set<Color> getColorList() {
+		return colorList;
+	}
+
+	public void setColorList(Set<Color> colorList) {
+		this.colorList = colorList;
 	}
 
 }

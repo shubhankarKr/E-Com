@@ -28,7 +28,7 @@ import eCom.backEnd.message.SuccessResponse;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/ecom/user")
+@RequestMapping("/user")
 public class UserController {
 
 	@Autowired
@@ -39,27 +39,28 @@ public class UserController {
 
 	@Autowired
 	AuthoriryRepository authoriryRepository;
-	
+
 	@Autowired
 	Environment environment;
-	
+
 	@Autowired
 	AddressRepository addressRepository;
 
 	@PostMapping("/register")
 	public Users registerUser(@Valid @RequestBody Users user) throws Exception {
-		Optional<Users> entity = userRepository.findActiveUserByUserName(user.getUserName());
+		Optional<Users> entity = userRepository.findActiveUserByUserNameOrEmail(user.getUserName(), user.getEmail());
 		if (entity.isPresent()) {
-			throw new Exception(entity.get().getUserName()+" " +environment.getProperty("IS_ALREADY_REGISTERED"));
-		}
-		if(user.getEmail()!=null) {
-			Users found=userRepository.findUsersByEmail(user.getEmail());
-			if(found!=null) {
-				throw new Exception(user.getEmail()+" "+environment.getProperty("EMAIL_ALREADY_REGISTERED"));
+			if (entity.get().getEmail() != null) {
+				throw new Exception(entity.get().getEmail() + " " + environment.getProperty("IS_ALREADY_REGISTERED"));
 			}
+			throw new Exception(entity.get().getUserName() + " " + environment.getProperty("IS_ALREADY_REGISTERED"));
+
 		}
 		user.setPassword(encoder.encode(user.getPassword()));
-		if(user.getAuthorityList() == null || user.getAuthorityList().isEmpty()) {
+		if (user.getUserName() == null) {
+			user.setUserName(user.getEmail().split("@")[0]);
+		}
+		if (user.getAuthorityList() == null || user.getAuthorityList().isEmpty()) {
 			user.setAuthorityList(getDefaultAuthority());
 		}
 		Users savedUser = userRepository.save(user);
@@ -68,7 +69,8 @@ public class UserController {
 
 	@GetMapping("/authenticate")
 	public Users authenticateUser(Authentication authentication) throws Exception {
-		Optional<Users> entity = userRepository.findActiveUserByUserName(authentication.getName());
+		Optional<Users> entity = userRepository.findActiveUserByUserNameOrEmail(authentication.getName(),
+				authentication.getName());
 		if (entity.isPresent()) {
 			return entity.get();
 		}
@@ -78,9 +80,9 @@ public class UserController {
 	@PutMapping("/updateUser")
 	public Users updateUser(@RequestBody Users user) throws Exception {
 		Users savedUser = null;
-		Optional<Users> optionalUser =userRepository.findById(user.getId());
-		if (!optionalUser .isEmpty()) {
-			savedUser =optionalUser .get();
+		Optional<Users> optionalUser = userRepository.findById(user.getId());
+		if (!optionalUser.isEmpty()) {
+			savedUser = optionalUser.get();
 			savedUser.setPassword(encoder.encode(user.getPassword()));
 			savedUser.setEmail(user.getEmail());
 			savedUser.setUserName(user.getUserName());
@@ -91,31 +93,34 @@ public class UserController {
 
 	@DeleteMapping("/delete/userName/{userName}")
 	public ResponseEntity<SuccessResponse> deleteUser(@PathVariable String userName) throws Exception {
-		Optional<Users> optionalUser=userRepository.findActiveUserByUserName(userName);
-		if(optionalUser.isPresent()) {
+		Optional<Users> optionalUser = userRepository.findActiveUserByUserName(userName);
+		if (optionalUser.isPresent()) {
 			userRepository.deleteUserByUserName(userName);
-			return new ResponseEntity<>(new SuccessResponse(userName+ " "+ environment.getProperty("DELETED_SUCCESSFULLY")), HttpStatus.ACCEPTED);
+			return new ResponseEntity<>(
+					new SuccessResponse(userName + " " + environment.getProperty("DELETED_SUCCESSFULLY")),
+					HttpStatus.ACCEPTED);
 		}
-		throw new Exception(userName +" "+environment.getProperty("DOES_NOT_EXIST"));
+		throw new Exception(userName + " " + environment.getProperty("DOES_NOT_EXIST"));
 	}
-	
+
 	@DeleteMapping("/delete/id/{id}")
 	public ResponseEntity<SuccessResponse> deleteUser(@PathVariable int id) throws Exception {
-		Optional<Users> optionalUser=userRepository.findActiveUserById(id);
-		if(optionalUser.isPresent()) {
+		Optional<Users> optionalUser = userRepository.findActiveUserById(id);
+		if (optionalUser.isPresent()) {
 			userRepository.deleteUserById(id);
-			return new ResponseEntity<>(new SuccessResponse(id+ " "+ environment.getProperty("DELETED_SUCCESSFULLY")), HttpStatus.ACCEPTED);
+			return new ResponseEntity<>(new SuccessResponse(id + " " + environment.getProperty("DELETED_SUCCESSFULLY")),
+					HttpStatus.ACCEPTED);
 		}
-		throw new Exception(id +" "+environment.getProperty("DOES_NOT_EXIST"));
+		throw new Exception(id + " " + environment.getProperty("DOES_NOT_EXIST"));
 	}
 
 	@GetMapping("/allAuthorities")
 	List<Authority> findAllAuthorities() {
 		return authoriryRepository.findAll();
 	}
-	
-	private List<Authority> getDefaultAuthority(){
-		List<Authority> authorityList=new ArrayList<>();
+
+	private List<Authority> getDefaultAuthority() {
+		List<Authority> authorityList = new ArrayList<>();
 		Authority a = new Authority();
 		a.setName("ROLE_USER");
 		authorityList.add(a);

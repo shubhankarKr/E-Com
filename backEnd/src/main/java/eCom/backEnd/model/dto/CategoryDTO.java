@@ -3,21 +3,18 @@ package eCom.backEnd.model.dto;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-import eCom.backEnd.entity.Products;
-
 public class CategoryDTO {
-
 	private Integer id;
-	
+
 	private LocalDateTime createdAt;
-	
+
 	private LocalDateTime updatedAt;
 
 	private String name;
 
-	private int active;
+	private Short active;
 
-	Set<Products> productList;
+	Set<ProductsDTO> productList;
 
 	public Integer getId() {
 		return id;
@@ -51,19 +48,19 @@ public class CategoryDTO {
 		this.name = name;
 	}
 
-	public int getActive() {
+	public Short getActive() {
 		return active;
 	}
 
-	public void setActive(int active) {
+	public void setActive(Short active) {
 		this.active = active;
 	}
 
-	public Set<Products> getProductList() {
+	public Set<ProductsDTO> getProductList() {
 		return productList;
 	}
 
-	public void setProductList(Set<Products> productList) {
+	public void setProductList(Set<ProductsDTO> productList) {
 		this.productList = productList;
 	}
 

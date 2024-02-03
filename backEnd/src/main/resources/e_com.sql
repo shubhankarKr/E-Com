@@ -1,27 +1,28 @@
--- use `u730611153_ecommerce`;
+ -- use `u730611153_ecommerce`;
  -- drop table users;
 
  -- drop database e_com;
 -- CREATE DATABASE  IF NOT EXISTS  `e_com`;
- use `e_com`;
+ -- use `e_com`;
 
 
--- use `u730611153_ecommerce`;
+use `u730611153_ecommerce`;
 SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, CONSTRAINT_NAME
        FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
        WHERE REFERENCED_TABLE_SCHEMA IS NOT NULL;
        
- --  SET foreign_key_checks = 0;
--- drop table if exists category CASCADE;
--- drop table if exists products CASCADE;
--- drop table if exists address CASCADE;
--- drop table if exists users CASCADE;
--- drop table if exists orders CASCADE;
--- drop table if exists authorities CASCADE;
--- drop table if exists products_category_mapping CASCADE; 
--- drop table if exists color CASCADE;
---       
--- SET foreign_key_checks = 1;
+SET foreign_key_checks = 0;
+drop table if exists category CASCADE;
+drop table if exists products CASCADE;
+drop table if exists address CASCADE;
+drop table if exists users CASCADE;
+drop table if exists orders CASCADE;
+drop table if exists authorities CASCADE;
+drop table if exists products_category_mapping CASCADE; 
+drop table if exists color CASCADE;
+drop table if exists api_details CASCADE;
+      
+SET foreign_key_checks = 1;
 
 
 create table category(
@@ -50,14 +51,14 @@ create table products(
 	updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     description varchar(500) DEFAULT NULL,
 	name varchar(100) NOT NULL,
-    updated_by varchar(255) NOT NULL,
+    updated_by varchar(255) ,
     price int DEFAULT null,
     discount int DEFAULT null,
     seller varchar(50) default null,
     active smallint NOT NULL DEFAULT 1
 );
 
- -- DROP TABLE USERS;
+-- DROP TABLE users;
 create table users(
 	user_id int PRIMARY KEY AUTO_INCREMENT,
     password VARCHAR(200) NOT NULL,
@@ -66,12 +67,14 @@ create table users(
 	user_name varchar(100) UNIQUE NOT NULL,
     email varchar(100) UNIQUE NOT NULL,
     gender enum ('MALE','FEMALE','OTHERS') not null,
+    first_name varchar(100),
+    last_name varchar(100),
 	active smallint NOT NULL DEFAULT 1
 );
 
 -- insert into users(password,user_name,email) values ('a','Clerk','he@gmail.com');
 
--- drop table orders;
+ -- drop table api_details;
 create table orders(
 	id int PRIMARY KEY AUTO_INCREMENT,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -120,7 +123,7 @@ select * from products;
 
 -- update authorities set name='ROLE_USER' where user_id=852;
 -- drop tables authorities;
-desc users;
+desc products;
 
 select * from products;
 
@@ -134,7 +137,7 @@ create table address(
     city varchar(50),
     state varchar(50),
     landmark varchar(200),
-    address_type enum ('Home','Work') ,
+    address_type enum ('HOME','WORK') ,
     user_id int,
     active smallint NOT NULL DEFAULT 1
 );
@@ -151,8 +154,10 @@ create table api_details(
 );
 
 
-select * from api_details;
+select * from products;
+-- delete from products where product_id <>6;
 
-delete from api_details where id=21;
+-- delete from api_details where id=21;
 select * from users;
 
+select * from address;

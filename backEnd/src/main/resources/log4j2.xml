@@ -26,7 +26,7 @@
   <Loggers>
 	   <Logger name="eCom.backEnd.filter.interceptor" additivity="false" level="debug">
             <AppenderRef ref="Console" />
-            <AppenderRef ref="rollingFile" />
+<!--            <AppenderRef ref="rollingFile" />-->
         </Logger>
 <!--	   <Logger name="eCom.backEnd" additivity="false" level="debug">-->
 <!--            <AppenderRef ref="Console" />-->
