@@ -66,4 +66,11 @@ export class UserService {
   getCurrentUser() {
     return sessionStorage.getItem('currentUser');
   }
+
+  findByUserNameOrEmail(value: string): Observable<any> {
+    let url = this.findByUserNameOrEmail;
+    return this.httpHandler.getMethod(
+      this.apiList.FIND_USER_BY_USERNAME_OR_EMAIL.replace('{value}', value)
+    );
+  }
 }

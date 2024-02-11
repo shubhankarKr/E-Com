@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,9 +34,6 @@ public class ProductsController {
 	@Autowired
 	UserAuthenticationService userAuthenticationService;
 
-	@Autowired
-	ModelMapper modelMapper;
-
 	@GetMapping("/find/id/{id}")
 	public Products findProductsById(@PathVariable int id) throws Exception {
 		Products entity = productRepository.findByIdAndActive(id, 1);
@@ -57,7 +53,7 @@ public class ProductsController {
 		return productRepository.findAll();
 	}
 
-	@PostMapping("/create")
+	@PostMapping(value = "/create", consumes = "application/json", produces = "application/json")
 	public Products createProduct(@RequestBody Products product) throws Exception {
 		if (product.getCategoryList() != null) {
 			ArrayList<Integer> idList = new ArrayList<>();
@@ -104,8 +100,7 @@ public class ProductsController {
 
 	@GetMapping("/allProductsByCategoryId/{categoryId}")
 	public Set<Products> findAllProductsByICategoryd(@PathVariable int categoryId) {
-		List<Integer> productIdList = productRepository.findProductIdListByCategoryId(categoryId);
-		List<Products> products = productRepository.findAllById(productIdList);
-		return new HashSet<>(products);
+		List<Products> productIdList = productRepository.findProductIdListByCategoryId(categoryId);
+		return new HashSet<>(productIdList);
 	}
 }

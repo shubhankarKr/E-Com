@@ -3,10 +3,10 @@
 
  -- drop database e_com;
 -- CREATE DATABASE  IF NOT EXISTS  `e_com`;
- -- use `e_com`;
+ use `e_com`;
 
 
-use `u730611153_ecommerce`;
+-- use `u730611153_ecommerce`;
 SELECT TABLE_SCHEMA, TABLE_NAME, COLUMN_NAME, CONSTRAINT_NAME
        FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
        WHERE REFERENCED_TABLE_SCHEMA IS NOT NULL;
@@ -152,6 +152,12 @@ create table api_details(
    description varchar(500) NOT NULL,
    host varchar(100) NOT NULL
 );
+
+create table cart(
+   id int PRIMARY KEY AUTO_INCREMENT,
+   user_name varchar(255) unique NOT NULL
+);
+
 
 
 select * from products;

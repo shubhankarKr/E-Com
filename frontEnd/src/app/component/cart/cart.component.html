@@ -1,1 +1,7 @@
-<p>cart works!</p>
+<div>
+    <div class="card mx-auto mb-3" style="max-width: 60rem;" *ngFor="let p of products">
+        <div>Name : {{p.name}}</div>
+        <div>Description : {{p.description}}</div>
+        <button type="button" class="btn btn-danger" (click)="remove(p)">Remove</button>
+    </div>
+</div>

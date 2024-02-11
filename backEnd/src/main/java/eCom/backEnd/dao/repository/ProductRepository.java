@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import eCom.backEnd.entity.Products;
@@ -21,7 +22,7 @@ public interface ProductRepository extends JpaRepository<Products, Integer> {
 	@Query("select p from Products p where p.active = 1")
 	public List<Products> findAllActive();
 
-	@Query("select p.productId from ProductsCategoryMapping p where p.categoryId = ?1")
-	public List<Integer> findProductIdListByCategoryId(int categoryId);
+	@Query("select productList from Category c where c.id = ?1")
+	public List<Products> findProductIdListByCategoryId(@Param("id") int categoryId);
 
 }

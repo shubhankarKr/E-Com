@@ -17,6 +17,8 @@ import eCom.backEnd.dao.repository.AuthoriryRepository;
 import eCom.backEnd.dao.repository.metadata.APIDetailsRepository;
 import eCom.backEnd.entity.Authority;
 import eCom.backEnd.entity.metadata.APIDetails;
+import eCom.backEnd.model.dto.CategoryMetadataDTO;
+import eCom.backEnd.service.CategoryService;
 
 @RestController
 @RequestMapping("/metadata")
@@ -28,9 +30,17 @@ public class MetadataController {
 	@Autowired
 	APIDetailsRepository apiDetailsRepository;
 
+	@Autowired
+	CategoryService categoryService;
+
 	@GetMapping("/getAuthorities")
 	public List<Authority> getAuthorities() throws Exception {
 		return authoriryRepository.findAllByMd(1);
+	}
+
+	@GetMapping("/findAllCategoriesMD")
+	public List<CategoryMetadataDTO> findAllCategoriesMD() throws Exception {
+		return categoryService.findAllCategoriesMD();
 	}
 
 	@PostMapping("/apiDetails/create")

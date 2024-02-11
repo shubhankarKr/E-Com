@@ -77,6 +77,15 @@ public class UserController {
 		return null;
 	}
 
+	@GetMapping("/findByUserNameOrEmail/{userNameOrEmail}")
+	public Users authenticateUser(@PathVariable("userNameOrEmail") String userNameOrEmail) throws Exception {
+		Optional<Users> entity = userRepository.findActiveUserByUserNameOrEmail(userNameOrEmail, userNameOrEmail);
+		if (entity.isPresent()) {
+			return entity.get();
+		}
+		throw new Exception(userNameOrEmail + " does not exists in the system");
+	}
+
 	@PutMapping("/updateUser")
 	public Users updateUser(@RequestBody Users user) throws Exception {
 		Users savedUser = null;

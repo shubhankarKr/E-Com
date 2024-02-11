@@ -2,21 +2,22 @@ package eCom.backEnd.entity.base;
 
 import java.time.LocalDateTime;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
 
 	@Column(name = "created_at", updatable = false)
-	@CreationTimestamp
+	@CreatedDate
 	private LocalDateTime createdAt;
 
 	@Column(name = "created_by", updatable = false)
@@ -24,7 +25,7 @@ public class BaseEntity {
 	private String createdBy;
 
 	@Column(name = "updated_at", insertable = false)
-	@UpdateTimestamp
+	@LastModifiedDate
 	private LocalDateTime updatedAt;
 
 	@LastModifiedBy
@@ -36,13 +37,13 @@ public class BaseEntity {
 
 	public BaseEntity() {
 		this.active = 1;
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if (authentication != null) {
-			Object principal = authentication.getPrincipal();
-			if (principal != null && principal instanceof String) {
-				this.createdBy = (String) principal;
-			}
-		}
+//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//		if (authentication != null) {
+//			Object principal = authentication.getPrincipal();
+//			if (principal != null && principal instanceof String) {
+//				this.createdBy = (String) principal;
+//			}
+//		}
 	}
 
 	public LocalDateTime getCreatedAt() {

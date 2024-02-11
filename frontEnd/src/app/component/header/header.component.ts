@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Observer } from 'rxjs';
+import { BehaviorSubject, Observable, Observer } from 'rxjs';
+import { CartService } from 'src/app/service/cart/cart.service';
 import { ProductService } from 'src/app/service/product/product.service';
 import { UserService } from 'src/app/service/user/user.service';
 
@@ -11,13 +12,21 @@ import { UserService } from 'src/app/service/user/user.service';
 export class HeaderComponent implements OnInit {
   showLogin!: boolean;
   currentUser!: string | null;
-  constructor(private userService: UserService) {}
+  cartCount!: number;
+  constructor(
+    private userService: UserService,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.userService.getLoginFlag().subscribe({
       next: (res) => {
-        // console.log(' home component subscribe ' + res);
         this.showLogin = res;
+        if (res) {
+          this.cartService
+            .getCartCount()
+            .subscribe({ next: (res) => (this.cartCount = res) });
+        }
         this.currentUser = this.userService.getCurrentUser();
       },
     });

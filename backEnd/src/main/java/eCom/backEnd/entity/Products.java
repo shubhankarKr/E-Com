@@ -2,8 +2,6 @@ package eCom.backEnd.entity;
 
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import eCom.backEnd.entity.base.BaseEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -20,7 +18,6 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "products")
-//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Products extends BaseEntity {
 
 	@Id
@@ -40,7 +37,8 @@ public class Products extends BaseEntity {
 	private String seller;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JsonIgnore
+//	@JsonIgnore
+//	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 	@JoinTable(name = "products_category_mapping", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
 	private Set<Category> categoryList;
 

@@ -20,7 +20,6 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "category")
-//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Category extends BaseEntity {
 
 	@Id
@@ -41,6 +40,7 @@ public class Category extends BaseEntity {
 	private Short active;
 
 	@JsonIgnore
+//	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 	@ManyToMany(mappedBy = "categoryList", fetch = FetchType.LAZY)
 	Set<Products> productList;
 

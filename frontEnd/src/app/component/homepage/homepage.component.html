@@ -1,8 +1,14 @@
-<div class="d-flex flex-row flex-wrap gap-3">
-    <div class="card text-white bg-secondary" style="max-width: 18rem" *ngFor="let product of productList">
+<div *ngIf="loadingFlag">
+    <app-loading></app-loading>
+</div>
+<div *ngIf="!loadingFlag" >
+    <!-- <div class="card text-white bg-secondary" style="max-width: 18rem" *ngFor="let product of productList">
         <div class="card-header">{{ product.id }} - {{ product.name }}</div>
+        <img src="../../assets/no_img.jpg" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Secondary card title</h5>
         </div>
-    </div>
+    </div> -->
+
+    <app-custom-card [productList] ="productList"></app-custom-card>
 </div>

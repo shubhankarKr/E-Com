@@ -98,7 +98,6 @@ export class ApiDetailsComponent implements OnInit {
   formSubmit() {
     // console.log(' API data login ' + JSON.stringify(this.addAPIForm.value));
     this.loadingFlag = true;
-    console.log(' formSubmit showMoode ' + this.showMode);
 
     let apiPath: string = this.addAPIForm.get('apiPath')?.value;
     if (!apiPath.startsWith('/')) {

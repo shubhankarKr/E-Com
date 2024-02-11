@@ -8,6 +8,15 @@ import { HttpHandlerService } from '../httpHandler/http-handler.service';
   providedIn: 'root',
 })
 export class ProductService {
+  addProduct(data: {
+    name: any;
+    description: any;
+    price: any;
+    discount: any;
+    categoryList: any[];
+  }) {
+    return this.httpHandler.postMethod(this.apiList.PRODUCTS_ADD, data);
+  }
   constructor(
     private http: HttpClient,
     private apiList: APIList,

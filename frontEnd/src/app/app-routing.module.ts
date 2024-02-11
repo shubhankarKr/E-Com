@@ -8,6 +8,8 @@ import { UserDashboardComponent } from './component/user-dashboard/user-dashboar
 import { OrderComponent } from './component/order/order.component';
 import { CartComponent } from './component/cart/cart.component';
 import { ProductComponent } from './component/product/product.component';
+import { MyProfileComponent } from './component/my-profile/my-profile.component';
+import { AddProductComponent } from './component/add-product/add-product.component';
 
 const routes: Routes = [
   { path: 'homepage', component: HomepageComponent },
@@ -16,9 +18,11 @@ const routes: Routes = [
   { path: 'signUp', component: SignUpComponent },
   { path: 'user/dashboard', component: UserDashboardComponent },
   { path: 'user/order', component: OrderComponent },
+  { path: 'user/profile', component: MyProfileComponent },
   { path: 'user/cart', component: CartComponent },
   { path: 'api', component: ApiDetailsComponent },
   { path: 'product/:id', component: ProductComponent },
+  { path: 'products/add', component: AddProductComponent },
 ];
 
 @NgModule({

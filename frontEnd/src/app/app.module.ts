@@ -23,6 +23,9 @@ import { CartComponent } from './component/cart/cart.component';
 import { UserDashboardComponent } from './component/user-dashboard/user-dashboard.component';
 import { ProductComponent } from './component/product/product.component';
 import { LoadingComponent } from './component/loading/loading/loading.component';
+import { MyProfileComponent } from './component/my-profile/my-profile.component';
+import { AddProductComponent } from './component/add-product/add-product.component';
+import { CustomCardComponent } from './commomcomponent/custom-card/custom-card.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,9 @@ import { LoadingComponent } from './component/loading/loading/loading.component'
     UserDashboardComponent,
     ProductComponent,
     LoadingComponent,
+    MyProfileComponent,
+    AddProductComponent,
+    CustomCardComponent,
   ],
   imports: [
     BrowserModule,
