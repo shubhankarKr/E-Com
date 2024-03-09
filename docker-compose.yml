@@ -1,0 +1,65 @@
+version: '3.7'
+# ERROR - Removed subprocess.CalledProcessError: 
+# Command '['/usr/local/bin/docker-credential-desktop', 'get']' 
+# returned non-zero exit status 1
+
+# SOLUTION - Remove "credsStore":"desktop" from ~/.docker/config.json 
+# Original Content of ~/.docker/config.json
+# {"auths":{},"credsStore":"", "credsStore":"desktop","stackOrchestrator":"swarm"}
+# Update it to this
+# {"auths":{},"credsStore":"","stackOrchestrator":"swarm"}
+# OR
+# {"auths":{},"stackOrchestrator":"swarm"}
+services:
+  frontend_ecom:
+    image: frontend:dev
+    build:
+      context: frontEnd
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    restart: always
+    depends_on: # Start the depends_on first
+      - backend_ecom
+    networks:
+      - ecom_network
+
+  backend_ecom:
+    image: backend:dev
+    build:
+      context: backEnd
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on: # Start the depends_on first
+      - mysql
+    environment:
+      RDS_HOSTNAME: mysql
+      # RDS_PORT: 3306
+      # RDS_DB_NAME: e_com
+      # RDS_USERNAME: e_com_user
+      # RDS_PASSWORD: root
+    networks:
+      - ecom_network
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass 
+      MYSQL_USER: e_com_user
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: e_com
+    volumes:
+      - mysql-ecom-volume:/var/lib/mysql
+    networks:
+      - ecom_network  
+  
+# Networks to be created to facilitate communication between containers
+volumes:
+  mysql-ecom-volume:
+networks:
+  ecom_network:

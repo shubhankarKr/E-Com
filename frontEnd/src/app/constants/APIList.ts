@@ -2,7 +2,7 @@ export class APIList {
   //server host
   // HOST_URL = 'https://ecom-myu7.onrender.com' + '/ecom';
   // HOST_URL = 'https://ecom-myu7.onrender.com' + '/ecom';
-  // local host
+  // local host Value
   HOST_URL = 'http://localhost:8080' + '/ecom';
 
   USER_BASE_URL = this.HOST_URL + '/user';

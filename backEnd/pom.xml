@@ -16,6 +16,8 @@
 	<description>This is backEnd for e-com website built using Spring boot</description>
 	<properties>
 		<java.version>17</java.version>
+		<docker_project.name>e_com</docker_project.name>
+		<docker_project.version>dev</docker_project.version>
 	</properties>
 	<dependencies>
 		<dependency>
