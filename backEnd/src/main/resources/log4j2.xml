@@ -17,8 +17,8 @@
 				<Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n</Pattern>
 			</PatternLayout>
 			<Policies>
-<!--				<TimeBasedTriggeringPolicy filePattern="logs/application.%d{dd-MMM-hh}.log.gz" />-->
-				<SizeBasedTriggeringPolicy size="1 MB" />
+				<TimeBasedTriggeringPolicy filePattern="${basePath}/application.%d{dd-MMM-hh}.log.gz" />
+				<SizeBasedTriggeringPolicy size="10 MB" />
 			</Policies>
 			<DefaultRolloverStrategy max="5" />
 		</RollingFile>
